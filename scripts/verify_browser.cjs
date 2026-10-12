@@ -13,7 +13,7 @@ const report=process.env.BROWSER_REPORT||path.join(root,'evidence/generated/brow
   page.on('pageerror',e=>errors.push(e.message));
   await page.goto(base);await page.waitForFunction(()=>window.__studio);await page.evaluate(()=>document.fonts.ready);
   check('All 30 labeled embedded recordings are available',await page.locator('#runSelect option').count()===30);
-  check('Current context UI is served', (await (await page.request.get(base+'/api/meta')).json()).implementation==='studio-1.4-context-ui');
+  check('Current context UI is served', (await (await page.request.get(base+'/api/meta')).json()).implementation==='studio-1.5-llm-protocol');
   check('1920 x 1080 research screen fits',await page.evaluate(()=>document.documentElement.scrollWidth<=1920&&document.documentElement.scrollHeight<=1080));
   check('All 18 museum spaces are rendered',await page.evaluate(()=>Object.keys(window.__studio.rooms).length===18));
   await page.click('#next');await page.waitForTimeout(100);

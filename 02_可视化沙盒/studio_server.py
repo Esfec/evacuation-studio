@@ -17,7 +17,7 @@ HERE = Path(__file__).resolve().parent
 DEFAULT_REPO = HERE.parent / '01_研究源码'
 PROTOCOL = 'evacuation.events.v1'
 REPLAY = 'evacuation.replay.v1'
-IMPLEMENTATION = 'studio-1.4-context-ui'
+IMPLEMENTATION = 'studio-1.5-llm-protocol'
 _ENG = None
 _LOCK = threading.RLock()
 RUNS = {}
@@ -115,6 +115,22 @@ def snapshot(eng, initial=False):
                 llm_calls=len(eng.llm_call_log), fallback_count=eng.fallback_count, valid=eng.valid_run)
 
 
+def llm_protocol_summary(eng):
+    """Audit counts for the LLM output protocol (empty for non-LLM runs)."""
+    log=list(getattr(eng,'llm_call_log',[]) or [])
+    if not log:
+        return {}
+    norm={}
+    for row in log:
+        kind=row.get('target_normalization') or ''
+        if row.get('success') and kind:
+            norm[kind]=norm.get(kind,0)+1
+    return dict(attempts=len(log),successes=sum(bool(r.get('success')) for r in log),
+                invalid_outputs=sum(bool(r.get('transport_success')) and not r.get('success') for r in log),
+                feedback_retries=sum(bool(r.get('feedback_retry')) for r in log),
+                normalized=norm,fallbacks=getattr(eng,'fallback_count',0))
+
+
 class RunSession:
     def __init__(self, params, repo=DEFAULT_REPO, output=None):
         self.repo = Path(repo)
@@ -171,6 +187,7 @@ class RunSession:
                         fallback_count=self.engine.fallback_count if self.engine else 0,
                         quality=('invalid' if self.status=='failed' or (self.engine and not self.engine.valid_run) else
                                  'degraded' if self.engine and self.engine.fallback_count else 'clean'),
+                        llm_protocol=llm_protocol_summary(self.engine),
                         provenance=getattr(self,'provenance',{}),settings=self.settings)
 
     def run(self):

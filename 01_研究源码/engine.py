@@ -1,5 +1,6 @@
 """engine.py — 仿真引擎"""
 import json
+import re
 import random
 import threading
 import numpy as np
@@ -30,6 +31,58 @@ from policies import (
     information_scope_for,
 )
 
+
+
+# --- LLM output protocol (studio-1.5) -------------------------------------------
+# Deterministic, audited repair of the target field. Only targets that are already in
+# the agent's local option list can be matched; anything ambiguous stays invalid.
+_NODE_ID = re.compile(r"N\d{2}")
+
+
+def resolve_llm_target(content, paths):
+    """Return (path, normalization) for an LLM answer, or (None, None).
+
+    normalization is None for an exact ID, otherwise one of
+    'id_case' (e.g. "n05"), 'id_in_text' (exactly one allowed ID inside the string,
+    e.g. "N05 中走廊") or 'name' (exactly one allowed target whose name equals the
+    string, e.g. "中走廊"). Ambiguous or unknown values are rejected.
+    """
+    raw = content.get("target_id") if isinstance(content, dict) else None
+    if not isinstance(raw, str):
+        return None, None
+    text = raw.strip()
+    by_id = {str(p["target_id"]): p for p in paths}
+    if raw in by_id:
+        return by_id[raw], None
+    if text in by_id:
+        return by_id[text], "id_case"
+    if text.upper() in by_id:
+        return by_id[text.upper()], "id_case"
+    ids = set(_NODE_ID.findall(text.upper())) & set(by_id)
+    if len(set(_NODE_ID.findall(text.upper()))) == 1 and len(ids) == 1:
+        return by_id[ids.pop()], "id_in_text"
+    named = [p for p in paths if str(p.get("target_name", "")).strip() == text]
+    if len(named) == 1:
+        return named[0], "name"
+    return None, None
+
+
+def llm_retry_feedback(error_type, answer, content, allowed):
+    """Correction message for the next attempt; states the protocol, adds no new facts."""
+    if error_type == "invalid_target":
+        raw = content.get("target_id") if isinstance(content, dict) else None
+        return (f"上一条回复的 target_id 为「{raw}」，它不是允许的节点 ID。"
+                "target_id 必须原样填写下列等号左侧的 ID 之一，不要填写房间名或其他文字。"
+                f"\n允许目标：{allowed}\n请重新输出同样格式的 JSON。")
+    if error_type == "output_truncated":
+        return ("上一条回复被截断。请把 brief_justification 缩短到 60 字以内，并输出完整 JSON。"
+                f"\n允许目标：{allowed}")
+    if error_type == "invalid_summary":
+        return ("brief_justification 必须是一段字符串。请重新输出 JSON。"
+                f"\n允许目标：{allowed}")
+    return ("上一条回复不是一个 JSON 对象。只输出 "
+            '{"target_id":"节点ID","brief_justification":"简短理由"}，不要附加其他文字。'
+            f"\n允许目标：{allowed}")
 
 class SimulationEngine:
     def __init__(self, map_data, agent_data, api_key=None,
@@ -1137,16 +1190,21 @@ class SimulationEngine:
             f"{agent.get('role_description', '')}\n"
             "你正在建筑火灾中疏散，只能使用给定的局部观测。"
             "选择一个可通行目标，不要输出思维链。"
+            "target_id 必须填写“允许目标”中等号左侧的节点 ID（如 N05），不能填写房间名。"
             "严格输出 JSON："
             '{"target_id":"节点ID","brief_justification":"简短可审计理由"}。'
         )
-        messages = [
+        base_messages = [
             {"role": "system", "content": system_content},
             {"role": "user", "content": f"{prompt}\n允许目标：{allowed}"},
         ]
+        messages = base_messages
 
         result = None
+        resolved = None
+        normalization = None
         for attempt in range(1, 4):
+            feedback_used = messages is not base_messages
             started = time.time()
             self._emit('api.started', step=step, agent_id=agent['id'],
                        attempt=attempt, provider=self.api_provider, model=self.api_model)
@@ -1176,6 +1234,7 @@ class SimulationEngine:
                     self.token_usage["completion"] += usage.get("completion_tokens", 0)
                 output_error = None
                 content = {}
+                resolved, normalization = None, None
                 if result.get("finish_reason") == "length":
                     output_error = "output_truncated"
                 else:
@@ -1186,12 +1245,21 @@ class SimulationEngine:
                             output_error = "invalid_json"
                     except (TypeError, AttributeError, json.JSONDecodeError):
                         output_error = "invalid_json"
-                    if output_error is None and not any(p["target_id"] == content.get("target_id") for p in paths):
-                        output_error = "invalid_target"
+                    if output_error is None:
+                        resolved, normalization = resolve_llm_target(content, paths)
+                        if resolved is None:
+                            output_error = "invalid_target"
                     if output_error is None and not isinstance(content.get("brief_justification"), str):
                         output_error = "invalid_summary"
                 if output_error:
                     result = dict(result, error=output_error, error_type=output_error, retryable=True)
+                    # The next attempt sees its own answer and a protocol correction.
+                    previous = result.get("answer", "")
+                    messages = base_messages + (
+                        [{"role": "assistant", "content": previous}]
+                        if isinstance(previous, str) and previous.strip() else []
+                    ) + [{"role": "user", "content": llm_retry_feedback(
+                        output_error, previous, content, allowed)}]
             self._emit('api.finished', step=step, agent_id=agent['id'],
                        attempt=attempt, success=not bool(result.get('error')),
                        transport_success=transport_success,
@@ -1218,6 +1286,8 @@ class SimulationEngine:
                 "response_text": result.get("answer", ""),
                 "error_type": result.get("error_type"),
                 "error_msg": str(result.get("error") or "")[:200],
+                "target_normalization": (normalization or "") if not result.get("error") else "",
+                "feedback_retry": bool(feedback_used),
             })
             if not result.get("error"):
                 break
@@ -1245,10 +1315,7 @@ class SimulationEngine:
             content = {}
         if not isinstance(content, dict):
             content = {}
-        target_id = str(content.get("target_id", ""))
-        matched = next(
-            (path for path in paths if path["target_id"] == target_id), None
-        )
+        matched, normalization = resolve_llm_target(content, paths)
         if matched is None:
             thought, target = self._llm_fallback(agent, paths, step)
             self._record_cot(

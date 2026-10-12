@@ -4,6 +4,7 @@
 
 - 建筑、树木、庭院、家具、标牌和行人：本次新增原创程序化Canvas绘制，见 pixel-world.js 和 studio.js。没有复制《星露谷物语》或斯坦福小镇的美术素材。v1.4 增加的陈设、树冠、人物配色同样为原创代码绘制。
 - Fusion Pixel Font：交接包已有字体，本次加载未修改的完整 fusion-pixel-12px-proportional-sc.woff2。许可证 SIL Open Font License 1.1，保留 font/LICENSE-font.txt。官方来源：https://github.com/TakWolf/fusion-pixel-font 。
+- museum-ui-1.7 至 1.9 的导览对话框、讲解员与集合点木牌、像素图标、出口照明、脚印和遇难标记（淡化身影与小白花）均为原创 CSS / Canvas 绘制，见 tour.js、split.js、studio.js、studio.css。
 - 浏览器常规文字使用系统字体；字体、样式和录制均可打包为离线HTML。
 - museum-ui-1.6 的像素火焰、烟雾、火光、水波与展陈说明卡为新增原创绘制和文案，见 scene-effects.js、pixel-world.js。展陈标题不是借用真实馆藏资料，描述属于场景创作。预览视频为本项目本地规则回放的浏览器录屏。
 

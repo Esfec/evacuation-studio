@@ -2,7 +2,7 @@
 
 一个将 LLM Agent、18 节点博物馆拓扑疏散仿真与原创 Cozy Pixel Art 观察界面结合的研究原型。支持方案比选、局部观察、空间记忆、容量排队、逐步记录与回放。
 
-本包对应 **2026-10-12 的当前代码**：仿真与事件服务标识 `studio-1.4-context-ui`，前端 `museum-ui-1.6`。仿真和前端源码与工作版本一致。最近 DeepSeek 运行的协议问题保留并注明，见 [KNOWN_ISSUES.md](KNOWN_ISSUES.md)。
+本包对应 **2026-10-13 的当前代码**：仿真与事件服务标识 `studio-1.5-llm-protocol`，前端 `museum-ui-1.9`。DeepSeek 目标字段协议已修复，但新协议尚未用真实 API 重跑，见 [KNOWN_ISSUES.md](KNOWN_ISSUES.md)。变更见 [CHANGELOG.md](CHANGELOG.md)，导览 / 分屏 / 画面说明见 [UI_TOUR_1_7.md](UI_TOUR_1_7.md)。
 
 ![博物馆界面](preview.png)
 
@@ -44,6 +44,14 @@ macOS / Linux：
 
 地图、陈设、门洞、人物、火焰和烟雾使用原创 Canvas 绘制。火烟特效读取仿真快照，切换动画模式不会改变仿真。
 
+## 汇报与展示
+
+- **★ 导览**（右上角）：按当前录制自动生成 6 幕——开馆、起火、认得路的人、跟着人群走、门口的队伍、结算。→ / Enter / 空格 / 翻页笔 PageDown 下一幕，← / PageUp 上一幕，Esc 退出。每幕文字只取自录制字段，并标注来源。
+- **▥ 分屏对照**（左侧工具栏）：左右同步回放除设计外配置完全相同的两份录制（如 D0 / D2），高亮新增或加宽的连接，房间红牌显示遇难人数，底部面板列出遇难地点变化。单次录制差异不代表统计显著性。
+- **画面**：出口外集合点与计数、门口排队队列、移动脚印、随风险变暗的室内照明与发光出口标志、火情封闭房间压暗、含蓄的遇难标记（淡化身影与小白花）。均为记录的表现层，不改变仿真。
+
+离线单文件页面同样支持导览与分屏。
+
 ## 命令行
 
 与前端使用同一参数验证和引擎。在仓库根目录：
@@ -71,6 +79,18 @@ python start.py
 ```text
 python 02_可视化沙盒/run_cli.py --policy LLM_Agent --provider DeepSeek --model deepseek-v4-flash --api-key-env DEEPSEEK_API_KEY --steps 3 --cognitive 1 --perceptual 1 --follower 1 --output work-runs
 ```
+
+LLM 输出协议（studio-1.5）：`target_id` 只在本步可选方向内做确定性匹配（精确 ID、大小写、文本中唯一 ID、唯一房间名），歧义一律视为无效；无效输出重试时附上一条回复与协议纠正。每次匹配方式和纠错重试写入 `llm_call_log`，回放附 `llm_protocol` 汇总；导览结算显示 LLM 采纳、恐慌改写与规则兜底的构成。
+
+录制汇报用的配对运行（默认 D0 / D2、C1、seed 42）：
+
+```powershell
+$env:DEEPSEEK_API_KEY="YOUR_API_KEY"
+.\.venv\Scripts\python.exe 02_可视化沙盒\record_talk_runs.py --dry-run   # 本地规则，跑通流程
+.\.venv\Scripts\python.exe 02_可视化沙盒\record_talk_runs.py             # 真实调用
+```
+
+结果写入 `02_可视化沙盒/talk_data.js`，页面录制列表顶部显示为“汇报录制”；运行 `python 02_可视化沙盒/bundle.py` 可打入离线页面。
 
 `.env.example` 仅列出环境变量名称；程序不会自动加载 `.env`。缺密钥的 LLM 请求会被拒绝。模型名称以账号实际权限为准，以上保留工作版本配置，不承诺服务商当前可用性。
 

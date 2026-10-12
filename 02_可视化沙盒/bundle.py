@@ -51,7 +51,12 @@ def main():
         sys.exit("index.html 中未找到 replay_data.js 引用")
     html = re.sub(pat_data, lambda m: inline("", data), html)
 
-    for name in ('studio_data.js', 'pixel-world.js', 'scene-effects.js', 'agent-narrative.js', 'studio.js', 'settings-ui.js'):
+    # Optional talk recordings (record_talk_runs.py); dropped when absent.
+    tag = '<script src="talk_data.js"></script>'
+    talk = os.path.join(HERE, 'talk_data.js')
+    html = html.replace(tag, inline('', read('talk_data.js')) if os.path.exists(talk) else '')
+
+    for name in ('studio_data.js', 'pixel-world.js', 'scene-effects.js', 'agent-narrative.js', 'studio.js', 'tour.js', 'split.js', 'settings-ui.js'):
         html = html.replace('<script src="'+name+'"></script>', inline('', read(name)))
     html = html.replace('<link rel="stylesheet" href="studio.css">', '<style>'+read('studio.css')+'</style>')
 

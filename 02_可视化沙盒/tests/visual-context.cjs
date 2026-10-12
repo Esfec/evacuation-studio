@@ -4,7 +4,7 @@ const assert=require('node:assert/strict'),fs=require('node:fs'),path=require('n
  const browser=await chromium.launch({headless:true}),page=await browser.newPage({viewport:{width:1920,height:1080}}),checks=[];
  const errors=[];page.on('pageerror',e=>errors.push(e.message));
  await page.goto('http://127.0.0.1:8765');await page.waitForFunction(()=>window.__studio);await page.evaluate(()=>document.fonts.ready);
- const meta=await (await page.request.get('http://127.0.0.1:8765/api/meta')).json();assert.equal(meta.implementation,'studio-1.4-context-ui');checks.push('Running service is updated to v1.4');
+ const meta=await (await page.request.get('http://127.0.0.1:8765/api/meta')).json();assert.equal(meta.implementation,'studio-1.5-llm-protocol');checks.push('Running service is updated to v1.5');
  const id=await page.evaluate(()=>{window.__studio.setIndex(3);return window.__studio.run.snapshots[3].agents.find(a=>a.action==='EDGE_QUEUE'&&a.observation?.length)?.id});assert.ok(id);await page.selectOption('#agentSelect',id);
  const txt=await page.locator('.bubble-summary').textContent();assert.match(txt,/排队/);assert.match(await page.locator('.bubble-source').textContent(),/记录综合解说/);checks.push('Active queued agent uses a labeled contextual summary');
  await page.locator('.bubble-evidence summary').click();assert.ok(await page.locator('.bubble-evidence').evaluate(el=>el.open));checks.push('Original observation, state, memory and environment are expandable');

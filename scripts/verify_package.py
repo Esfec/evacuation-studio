@@ -91,8 +91,8 @@ def main():
                 check(ping["ok"] and ping["repo_exists"], "Packaged server resolves its simulation engine", checks)
                 with urlopen(base + "/api/meta", timeout=5) as response:
                     meta = json.load(response)
-                check(meta["implementation"] == "studio-1.4-context-ui", "Service identifies the current implementation", checks)
-                for asset in ("/", "/studio.js", "/pixel-world.js", "/scene-effects.js", "/agent-narrative.js", "/studio_data.js", "/replay_data.js"):
+                check(meta["implementation"] == "studio-1.5-llm-protocol", "Service identifies the current implementation", checks)
+                for asset in ("/", "/studio.js", "/pixel-world.js", "/scene-effects.js", "/agent-narrative.js", "/tour.js", "/split.js", "/talk_data.js", "/studio_data.js", "/replay_data.js"):
                     with urlopen(base + asset, timeout=5) as response:
                         check(response.status == 200 and bool(response.read()), "HTTP asset: " + asset, checks)
             finally:
@@ -106,7 +106,7 @@ def main():
     offline = ROOT / "02_可视化沙盒" / "疏散沙盒-单文件版.html"
     check(offline.is_file() and "window.STUDIO_RUNS" in offline.read_text(encoding="utf-8"),
           "Offline single-file page contains the recorded demos", checks)
-    report = {"python": sys.version.split()[0], "implementation": "studio-1.4-context-ui",
+    report = {"python": sys.version.split()[0], "implementation": "studio-1.5-llm-protocol",
               "manifest_verification": "passed" if args.verify_manifest else "not_requested",
               "paid_api_calls": 0, "passed": len(checks), "checks": checks,
               "final_smoke_counts": replay["snapshots"][-1]["counts"]}

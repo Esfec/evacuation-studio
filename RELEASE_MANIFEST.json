@@ -1,10 +1,10 @@
 {
-  "release_date": "2026-10-12",
+  "release_date": "2026-10-13",
   "package": "evacuation-studio",
-  "simulation_implementation": "studio-1.4-context-ui",
-  "frontend": "museum-ui-1.6",
-  "source_identical_files": 149,
-  "text_files_scanned": 158,
+  "simulation_implementation": "studio-1.5-llm-protocol",
+  "frontend": "museum-ui-1.9",
+  "source_identical_files": 135,
+  "text_files_scanned": 164,
   "credential_findings": 0,
   "excluded": [
     "local raw runs",
@@ -29,8 +29,8 @@
     },
     {
       "path": ".github/workflows/checks.yml",
-      "size": 911,
-      "sha256": "2b836feb0728c8c25ef2e06eedcf4a8f7068ef925b2cc613684fc1db22227c6e",
+      "size": 948,
+      "sha256": "5d33daedadc0d7691c2ecb05c276652bed1fb12d5ee8d1c74dc3530b4ea13b1c",
       "source_identical": false
     },
     {
@@ -125,9 +125,9 @@
     },
     {
       "path": "01_研究源码/engine.py",
-      "size": 88930,
-      "sha256": "1e5f8433ca9058f15ff36429f0fb4ee55de928e6f06b0042b916c8bdd3426402",
-      "source_identical": true
+      "size": 92553,
+      "sha256": "f9e7e0f95bc0911f9baf6e0f40528a1d0e556f430fd70b37d5ec86126babab73",
+      "source_identical": false
     },
     {
       "path": "01_研究源码/figures/+figure1_framework.png",
@@ -239,9 +239,9 @@
     },
     {
       "path": "01_研究源码/recorder.py",
-      "size": 76066,
-      "sha256": "0c683ae515f54bf0ffd562ccf54f683616cd7fecc2765c205d89705c143e8d3a",
-      "source_identical": true
+      "size": 76117,
+      "sha256": "4d2dce4303e531a1c6dda8378cbcc4b2f33c35c28dfef23f0a8ae9ed403ced2c",
+      "source_identical": false
     },
     {
       "path": "01_研究源码/renderer.py",
@@ -490,6 +490,12 @@
       "source_identical": true
     },
     {
+      "path": "01_研究源码/tests/test_llm_target_protocol.py",
+      "size": 2038,
+      "sha256": "e33b90a40439423a92127d6eca573ea59ed05722479c681a270b7037ca93174c",
+      "source_identical": false
+    },
+    {
       "path": "01_研究源码/tests/test_movement.py",
       "size": 4005,
       "sha256": "cd9ddf27ca85033607bd205e86e2dcd1435a810e5de808885a467e112ce5c888",
@@ -551,9 +557,9 @@
     },
     {
       "path": "02_可视化沙盒/bundle.py",
-      "size": 2521,
-      "sha256": "3bf80ed1bf4a3a5610dcdd9c6006381f9b7b1084456d44796861f55b01d62f37",
-      "source_identical": true
+      "size": 2815,
+      "sha256": "d06b474d53ef47899433b6f7632e4494bf7289b176968a947558215684c926b8",
+      "source_identical": false
     },
     {
       "path": "02_可视化沙盒/default-settings.json",
@@ -599,9 +605,9 @@
     },
     {
       "path": "02_可视化沙盒/index.html",
-      "size": 12321,
-      "sha256": "a65a75aed51e6e4e53a585f65920a7a27cf0b796ab08099c6e1b7fda24f9fc64",
-      "source_identical": true
+      "size": 12449,
+      "sha256": "cb1c04edafe90c8b90b43e74e805d7df45a43f6b033ca5e939ee28fcb6181431",
+      "source_identical": false
     },
     {
       "path": "02_可视化沙盒/live_server.py",
@@ -634,6 +640,12 @@
       "source_identical": true
     },
     {
+      "path": "02_可视化沙盒/record_talk_runs.py",
+      "size": 3033,
+      "sha256": "6998c97f2aee684d09d8ac16e67cd6bd3fe62c0d2cdf3cdfb07681bea63a63c0",
+      "source_identical": false
+    },
+    {
       "path": "02_可视化沙盒/replay_data.js",
       "size": 1407562,
       "sha256": "30c224712f75c09dadb5155f087d64c1522b843cfe82b0532b298015b788121d",
@@ -647,9 +659,9 @@
     },
     {
       "path": "02_可视化沙盒/scene-effects.js",
-      "size": 3528,
-      "sha256": "59aa9feb260c61b088fd6d0c109252cb2468c509df9ed899fa05d144cdb218db",
-      "source_identical": true
+      "size": 3525,
+      "sha256": "c7ebd62f99a6e1315450c8d07364ac902457f1138229f5a3dbabc5082bb87738",
+      "source_identical": false
     },
     {
       "path": "02_可视化沙盒/settings-ui.js",
@@ -664,16 +676,22 @@
       "source_identical": true
     },
     {
+      "path": "02_可视化沙盒/split.js",
+      "size": 9617,
+      "sha256": "15108e190c781d533d0566cb8def96fb61b7645c517fc1e7d167365df989b0b6",
+      "source_identical": false
+    },
+    {
       "path": "02_可视化沙盒/studio.css",
-      "size": 18189,
-      "sha256": "32a3b9a64dcf651437193ae2f89eb2c03f7283226d0e9e00aeef9bb08c9d32ee",
-      "source_identical": true
+      "size": 31221,
+      "sha256": "feb824df41f4804d5d821d9e97d1accba66af1b8066c87c52b972b7923c36904",
+      "source_identical": false
     },
     {
       "path": "02_可视化沙盒/studio.js",
-      "size": 43906,
-      "sha256": "8b362b843ab33c2534bfd1b6b67af3f83e101cce115e732d180f5df94546d0ee",
-      "source_identical": true
+      "size": 52347,
+      "sha256": "fb7335a3b3c7022b91efd21e717936ca336f1f75dd732d5cb686660182ca382c",
+      "source_identical": false
     },
     {
       "path": "02_可视化沙盒/studio_data.js",
@@ -683,9 +701,15 @@
     },
     {
       "path": "02_可视化沙盒/studio_server.py",
-      "size": 19445,
-      "sha256": "73dd87f469cf4034edcf69bdd5698c8f8ecd4345cf434da542710263518e6727",
-      "source_identical": true
+      "size": 20231,
+      "sha256": "f02ab44f956dc2cecd06e5164ac5733f69fc26da760bc26f21219a725a0070b3",
+      "source_identical": false
+    },
+    {
+      "path": "02_可视化沙盒/talk_data.js",
+      "size": 103,
+      "sha256": "9ae6a7c4a93ee0c91ae77498b48fe2103dbef72d37a78aabc724d7bf754e51fb",
+      "source_identical": false
     },
     {
       "path": "02_可视化沙盒/tests/browser.cjs",
@@ -719,9 +743,9 @@
     },
     {
       "path": "02_可视化沙盒/tests/test_decision_validation.py",
-      "size": 2047,
-      "sha256": "f5f4e54ab45a9ce9beb03139726e854f8abb0a3fca4fa63a08a7bc073daf6241",
-      "source_identical": true
+      "size": 4014,
+      "sha256": "12ebbbe4c184589b283a18819fcbba5f737ab92c3853de4d5824fe7625246814",
+      "source_identical": false
     },
     {
       "path": "02_可视化沙盒/tests/test_final_service_audit.py",
@@ -743,21 +767,27 @@
     },
     {
       "path": "02_可视化沙盒/tests/visual-context.cjs",
-      "size": 2814,
-      "sha256": "65d1c6ddcfd156c13612e921293bd47db6d81cd668933697c2581b2945ee2f72",
-      "source_identical": true
+      "size": 2816,
+      "sha256": "aaae2a0cde2e40a88006d0544298174695a5e3b9dfd3d82a9e2e9271f1374419",
+      "source_identical": false
+    },
+    {
+      "path": "02_可视化沙盒/tour.js",
+      "size": 14032,
+      "sha256": "33040463b2762e100a4559ea7eca0f094557200cdecf252b9eef8f7203378f5c",
+      "source_identical": false
     },
     {
       "path": "02_可视化沙盒/疏散沙盒-单文件版.html",
-      "size": 16751781,
-      "sha256": "6f500b957b0c3b4aa6adf1464d5ca704a68f7d1db599e84dbc0690f465542a8e",
-      "source_identical": true
+      "size": 16796608,
+      "sha256": "76d6e94b36d21b109cba3225b50538f355bd4201eae962d4d053ff42b801c145",
+      "source_identical": false
     },
     {
       "path": "ASSETS.md",
-      "size": 1669,
-      "sha256": "5d536c520f75d0314fa25448c20b8b16847e6b205f750289f490afb888e828bd",
-      "source_identical": true
+      "size": 1912,
+      "sha256": "7e425dcfacad4058766a0a0ccd2411afc898227bb77041a7c40cbb7715bf15bc",
+      "source_identical": false
     },
     {
       "path": "AUDIT.md",
@@ -767,9 +797,9 @@
     },
     {
       "path": "CHANGELOG.md",
-      "size": 5094,
-      "sha256": "2836055e4494ef17cbd648d40cfb70bf1a44822f6654c7850817e3b2584d293f",
-      "source_identical": true
+      "size": 6932,
+      "sha256": "b742fa3309e123236119d64e124cdebccfd8488891c0950e900efd2527b11ae7",
+      "source_identical": false
     },
     {
       "path": "conftest.py",
@@ -923,14 +953,14 @@
     },
     {
       "path": "KNOWN_ISSUES.md",
-      "size": 1623,
-      "sha256": "30885307970c4e5dcdf4166ad2cb1e81e7ab2ef8a932036778610ceef52dd786",
+      "size": 2195,
+      "sha256": "6f94f5b8bbf5da51f83ddc4333e74f5dac8a12542471d94b5efbcd81bb7f1eb9",
       "source_identical": false
     },
     {
       "path": "LICENSE_STATUS.md",
-      "size": 757,
-      "sha256": "b4e2d6f60425f3cb89ca15acaf1727fdb31015ae454898d252faba56e9ed2404",
+      "size": 1,
+      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
       "source_identical": false
     },
     {
@@ -947,9 +977,9 @@
     },
     {
       "path": "preview.png",
-      "size": 186992,
-      "sha256": "5c7d0662277f5f4347b46f976e619684b61e90fe46e2751fe6f5adf7588c58b6",
-      "source_identical": true
+      "size": 128225,
+      "sha256": "4f6ead1fae8250e2a583d2fd89577c84525bac6b8d8e4d688d4dace53c480dde",
+      "source_identical": false
     },
     {
       "path": "pytest.ini",
@@ -959,14 +989,14 @@
     },
     {
       "path": "README.md",
-      "size": 7532,
-      "sha256": "780c607a82c7551358961f75bc7824d93e5b2809df74327d1aa7b16a5bf66034",
+      "size": 9065,
+      "sha256": "143e8f803f8da7e76f232449a8ed77c9aa75cd04f891bd5e7b7e47cedc7ec3f7",
       "source_identical": false
     },
     {
       "path": "RELEASE_NOTES.md",
-      "size": 1906,
-      "sha256": "d2a3ca71b0de19cabd426352eda9b284a3210d5c95342528226c435e2317bece",
+      "size": 2745,
+      "sha256": "dbc907cac6c5cb8d45b669642334ee35f753836cc651bd471243b1d97c6ab31d",
       "source_identical": false
     },
     {
@@ -995,14 +1025,14 @@
     },
     {
       "path": "scripts/verify_browser.cjs",
-      "size": 3866,
-      "sha256": "0917f5af3a7b61b5b7822f504711018ba96e06cac8312522f65f3e9c2d1823c5",
+      "size": 3868,
+      "sha256": "71fc16f9069025b5b390748100e77eeeedcb8ebdbf95bfdd63be242f936ee81c",
       "source_identical": false
     },
     {
       "path": "scripts/verify_package.py",
-      "size": 5710,
-      "sha256": "d80c7e888c731c1e82c9a8d472ed39617c59292d94ce909a35ca822e9650d00c",
+      "size": 6252,
+      "sha256": "acea7ef1f4bfc220c48133e6c0a0ecdce3521f8934ff79b612579f6a5a2c0cb3",
       "source_identical": false
     },
     {
@@ -1030,10 +1060,45 @@
       "source_identical": true
     },
     {
+      "path": "UI_TOUR_1_7.md",
+      "size": 6866,
+      "sha256": "982ad6f8da8eabd7c53e250485d34ab14c893f9bc05381884a9dc02dfc1d4097",
+      "source_identical": false
+    },
+    {
       "path": "UI_V1_4.md",
       "size": 3437,
       "sha256": "20eebea1e68145ce972051a191180d2d6fe357c32fd648f505e408a94f01dd42",
       "source_identical": true
     }
+  ],
+  "updated_files_2026_10_13": [
+    ".github/workflows/checks.yml",
+    "01_研究源码/engine.py",
+    "01_研究源码/recorder.py",
+    "02_可视化沙盒/bundle.py",
+    "02_可视化沙盒/index.html",
+    "02_可视化沙盒/scene-effects.js",
+    "02_可视化沙盒/studio.css",
+    "02_可视化沙盒/studio.js",
+    "02_可视化沙盒/studio_server.py",
+    "02_可视化沙盒/tests/test_decision_validation.py",
+    "02_可视化沙盒/tests/visual-context.cjs",
+    "02_可视化沙盒/疏散沙盒-单文件版.html",
+    "ASSETS.md",
+    "CHANGELOG.md",
+    "KNOWN_ISSUES.md",
+    "LICENSE_STATUS.md",
+    "preview.png",
+    "README.md",
+    "RELEASE_NOTES.md",
+    "scripts/verify_browser.cjs",
+    "scripts/verify_package.py",
+    "02_可视化沙盒/tour.js",
+    "02_可视化沙盒/split.js",
+    "02_可视化沙盒/talk_data.js",
+    "02_可视化沙盒/record_talk_runs.py",
+    "01_研究源码/tests/test_llm_target_protocol.py",
+    "UI_TOUR_1_7.md"
   ]
 }

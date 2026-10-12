@@ -1673,5 +1673,6 @@ def export_llm_call_log(eng) -> str:
         'prompt_tokens', 'completion_tokens', 'total_tokens',
         'latency_ms', 'success', 'error_type', 'error_msg',
         'transport_success', 'finish_reason', 'request_mode', 'response_text',
+        'target_normalization', 'feedback_retry',
     ]
     return _to_csv(getattr(eng, 'llm_call_log', []), fields)

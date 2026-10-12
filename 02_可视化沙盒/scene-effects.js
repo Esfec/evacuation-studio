@@ -10,7 +10,7 @@ const SceneEffects=(()=>{
   const {risk,smoke,fire}=levels(n),[x,y,w,h]=r;if(!smoke&&!fire)return;
   const salt=seed(n.id),t=time/1000;g.save();g.beginPath();g.rect(x+7,y+13,w-14,h-21);g.clip();
   // Scorch and glow grow with the recorded risk; no wall-clock spread model.
-  if(fire){block(g,x+7,y+13,w-14,h-21,`rgba(170,77,39,${fire*.16})`);const count=simple?1:Math.max(1,Math.ceil(fire*7));
+  if(fire){block(g,x+7,y+13,w-14,h-21,`rgba(170,77,39,${fire*.16})`);const count=simple?1:Math.max(1,Math.ceil(fire*5));
    for(let i=0;i<count;i++){const key=seed(n.id+':flame:'+i),xx=x+17+(key%Math.max(1,w-39)),yy=y+36+((key>>>5)%Math.max(1,h-55)),flicker=Math.sin(t*7+i*2)*2;
     const height=12+fire*19+flicker,wide=8+fire*6;
     puff(g,xx-wide-9,yy-8,wide*2+18,15,`rgba(249,164,52,${.1+fire*.12})`);
@@ -22,17 +22,17 @@ const SceneEffects=(()=>{
     if(!simple){const rise=(t*14+i*9)%31;block(g,xx+Math.sin(t+i)*4,yy-height-rise,2,3,`rgba(255,194,102,${.75*(1-rise/31)})`)}
    }
   }
-  if(smoke){block(g,x+7,y+13,w-14,h-21,`rgba(81,83,79,${smoke*.11})`);
+  if(smoke){block(g,x+7,y+13,w-14,h-21,`rgba(66,68,66,${smoke*.24})`);
    const count=simple?3:Math.ceil(smoke*13),width=26+smoke*38;
    for(let i=0;i<count;i++){const key=seed(n.id+':smoke:'+i),life=(t*.065+(key%997)/997)%1;
     const xx=x+8+((key%Math.max(1,w-25))+Math.sin(t*.42+i)*8),yy=y+h-12-life*(h-20),size=width*(.7+life*.6);
     // Pixel-step smoke, clipped to the recorded room; doors never invent extra smoke.
-    const opacity=(.045+smoke*.075)*Math.sin(life*Math.PI);
+    const opacity=(.07+smoke*.17)*Math.sin(life*Math.PI);
     puff(g,xx-size*.5,yy-size*.22,size,size*.49,`rgba(77,83,80,${opacity})`);
     puff(g,xx-size*.35,yy-size*.3,size*.7,size*.27,`rgba(190,192,174,${opacity*.8})`);
    }
    // A shallow ceiling layer makes rising concentration visible without hiding sprites.
-   block(g,x+7,y+13,w-14,Math.min(h*.35,15+smoke*25),`rgba(78,84,80,${smoke*.13})`);
+   block(g,x+7,y+13,w-14,Math.min(h*.35,15+smoke*25),`rgba(58,62,60,${smoke*.3})`);
   }
   g.restore();
  }
