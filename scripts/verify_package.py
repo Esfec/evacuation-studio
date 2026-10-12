@@ -20,9 +20,22 @@ def check(condition, name, checks):
     checks.append(name)
 
 
+def verify_release_manifest(root, checks):
+    """Check a frozen release explicitly; working repositories legitimately change."""
+    manifest_file = root / "RELEASE_MANIFEST.json"
+    check(manifest_file.is_file(), "Release manifest is present", checks)
+    manifest = json.loads(manifest_file.read_text(encoding="utf-8"))
+    for row in manifest["files"]:
+        file = root / row["path"]
+        check(file.is_file() and hashlib.sha256(file.read_bytes()).hexdigest() == row["sha256"],
+              "manifest: " + row["path"], checks)
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--report", type=Path, default=ROOT / "evidence" / "generated" / "package-verification.json")
+    parser.add_argument("--verify-manifest", action="store_true",
+                        help="Also verify the frozen release hashes (use on an unmodified release ZIP).")
     args = parser.parse_args()
     checks = []
     env = dict(os.environ, PYTHONUTF8="1", PYTHONDONTWRITEBYTECODE="1")
@@ -30,13 +43,8 @@ def main():
     for key in list(env):
         if key.endswith("API_KEY"):
             env.pop(key)
-    manifest_file = ROOT / "RELEASE_MANIFEST.json"
-    if manifest_file.exists():
-        manifest = json.loads(manifest_file.read_text(encoding="utf-8"))
-        for row in manifest["files"]:
-            file = ROOT / row["path"]
-            check(file.is_file() and hashlib.sha256(file.read_bytes()).hexdigest() == row["sha256"],
-                  "manifest: " + row["path"], checks)
+    if args.verify_manifest:
+        verify_release_manifest(ROOT, checks)
 
     with tempfile.TemporaryDirectory(prefix="evacuation-package-check-") as tmp:
         temp = Path(tmp)
@@ -99,6 +107,7 @@ def main():
     check(offline.is_file() and "window.STUDIO_RUNS" in offline.read_text(encoding="utf-8"),
           "Offline single-file page contains the recorded demos", checks)
     report = {"python": sys.version.split()[0], "implementation": "studio-1.4-context-ui",
+              "manifest_verification": "passed" if args.verify_manifest else "not_requested",
               "paid_api_calls": 0, "passed": len(checks), "checks": checks,
               "final_smoke_counts": replay["snapshots"][-1]["counts"]}
     args.report.parent.mkdir(parents=True, exist_ok=True)
