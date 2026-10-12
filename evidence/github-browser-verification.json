@@ -1,0 +1,22 @@
+{
+  "passed": 15,
+  "checks": [
+    "All 30 labeled embedded recordings are available",
+    "Current context UI is served",
+    "1920 x 1080 research screen fits",
+    "All 18 museum spaces are rendered",
+    "Recorded timeline advances",
+    "Agent bubble is populated",
+    "Presentation mode hides inspector",
+    "1440 x 810 screen fits",
+    "Packaged frontend service accepts a local run",
+    "Local run has an id",
+    "Local run completes without fallback or paid calls",
+    "Two simulation steps produce initial plus two committed frames",
+    "Relocated single-file page opens offline",
+    "Offline replay can advance",
+    "No browser JavaScript errors"
+  ],
+  "errors": [],
+  "paid_api_calls": 0
+}

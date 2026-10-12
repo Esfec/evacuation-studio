@@ -1,0 +1,270 @@
+{
+  "implementation": "studio-1.3-mechanism-audit",
+  "passed": true,
+  "local_runs": 18,
+  "external_api_calls": 0,
+  "checked": [
+    "population conservation",
+    "room capacity",
+    "edge capacity and proposal accounting",
+    "closed routes",
+    "action/position consistency",
+    "terminal bounds",
+    "completed-step clock",
+    "crowd override requires directional flow"
+  ],
+  "runs": [
+    {
+      "design": "D0",
+      "condition": "C0",
+      "seed": 7,
+      "frames": 17,
+      "agent_rows": 768,
+      "counts": {
+        "active": 0,
+        "escaped": 21,
+        "dead": 27,
+        "exhausted": 0
+      },
+      "n04_no_visible": 0
+    },
+    {
+      "design": "D0",
+      "condition": "C0",
+      "seed": 42,
+      "frames": 18,
+      "agent_rows": 816,
+      "counts": {
+        "active": 0,
+        "escaped": 22,
+        "dead": 26,
+        "exhausted": 0
+      },
+      "n04_no_visible": 0
+    },
+    {
+      "design": "D0",
+      "condition": "C0",
+      "seed": 91,
+      "frames": 16,
+      "agent_rows": 720,
+      "counts": {
+        "active": 0,
+        "escaped": 20,
+        "dead": 28,
+        "exhausted": 0
+      },
+      "n04_no_visible": 0
+    },
+    {
+      "design": "D0",
+      "condition": "C1",
+      "seed": 7,
+      "frames": 19,
+      "agent_rows": 864,
+      "counts": {
+        "active": 0,
+        "escaped": 15,
+        "dead": 33,
+        "exhausted": 0
+      },
+      "n04_no_visible": 0
+    },
+    {
+      "design": "D0",
+      "condition": "C1",
+      "seed": 42,
+      "frames": 20,
+      "agent_rows": 912,
+      "counts": {
+        "active": 0,
+        "escaped": 11,
+        "dead": 37,
+        "exhausted": 0
+      },
+      "n04_no_visible": 0
+    },
+    {
+      "design": "D0",
+      "condition": "C1",
+      "seed": 91,
+      "frames": 18,
+      "agent_rows": 816,
+      "counts": {
+        "active": 0,
+        "escaped": 18,
+        "dead": 30,
+        "exhausted": 0
+      },
+      "n04_no_visible": 0
+    },
+    {
+      "design": "D1",
+      "condition": "C0",
+      "seed": 7,
+      "frames": 18,
+      "agent_rows": 816,
+      "counts": {
+        "active": 0,
+        "escaped": 22,
+        "dead": 26,
+        "exhausted": 0
+      },
+      "n04_no_visible": 0
+    },
+    {
+      "design": "D1",
+      "condition": "C0",
+      "seed": 42,
+      "frames": 18,
+      "agent_rows": 816,
+      "counts": {
+        "active": 0,
+        "escaped": 22,
+        "dead": 26,
+        "exhausted": 0
+      },
+      "n04_no_visible": 0
+    },
+    {
+      "design": "D1",
+      "condition": "C0",
+      "seed": 91,
+      "frames": 16,
+      "agent_rows": 720,
+      "counts": {
+        "active": 0,
+        "escaped": 20,
+        "dead": 28,
+        "exhausted": 0
+      },
+      "n04_no_visible": 0
+    },
+    {
+      "design": "D1",
+      "condition": "C1",
+      "seed": 7,
+      "frames": 19,
+      "agent_rows": 864,
+      "counts": {
+        "active": 0,
+        "escaped": 15,
+        "dead": 33,
+        "exhausted": 0
+      },
+      "n04_no_visible": 0
+    },
+    {
+      "design": "D1",
+      "condition": "C1",
+      "seed": 42,
+      "frames": 20,
+      "agent_rows": 912,
+      "counts": {
+        "active": 0,
+        "escaped": 11,
+        "dead": 37,
+        "exhausted": 0
+      },
+      "n04_no_visible": 0
+    },
+    {
+      "design": "D1",
+      "condition": "C1",
+      "seed": 91,
+      "frames": 18,
+      "agent_rows": 816,
+      "counts": {
+        "active": 0,
+        "escaped": 18,
+        "dead": 30,
+        "exhausted": 0
+      },
+      "n04_no_visible": 0
+    },
+    {
+      "design": "D2",
+      "condition": "C0",
+      "seed": 7,
+      "frames": 22,
+      "agent_rows": 1008,
+      "counts": {
+        "active": 0,
+        "escaped": 19,
+        "dead": 29,
+        "exhausted": 0
+      },
+      "n04_no_visible": 0
+    },
+    {
+      "design": "D2",
+      "condition": "C0",
+      "seed": 42,
+      "frames": 16,
+      "agent_rows": 720,
+      "counts": {
+        "active": 0,
+        "escaped": 19,
+        "dead": 29,
+        "exhausted": 0
+      },
+      "n04_no_visible": 0
+    },
+    {
+      "design": "D2",
+      "condition": "C0",
+      "seed": 91,
+      "frames": 16,
+      "agent_rows": 720,
+      "counts": {
+        "active": 0,
+        "escaped": 21,
+        "dead": 27,
+        "exhausted": 0
+      },
+      "n04_no_visible": 0
+    },
+    {
+      "design": "D2",
+      "condition": "C1",
+      "seed": 7,
+      "frames": 20,
+      "agent_rows": 912,
+      "counts": {
+        "active": 0,
+        "escaped": 15,
+        "dead": 33,
+        "exhausted": 0
+      },
+      "n04_no_visible": 0
+    },
+    {
+      "design": "D2",
+      "condition": "C1",
+      "seed": 42,
+      "frames": 19,
+      "agent_rows": 864,
+      "counts": {
+        "active": 0,
+        "escaped": 11,
+        "dead": 37,
+        "exhausted": 0
+      },
+      "n04_no_visible": 0
+    },
+    {
+      "design": "D2",
+      "condition": "C1",
+      "seed": 91,
+      "frames": 19,
+      "agent_rows": 864,
+      "counts": {
+        "active": 0,
+        "escaped": 12,
+        "dead": 36,
+        "exhausted": 0
+      },
+      "n04_no_visible": 0
+    }
+  ]
+}

@@ -1,0 +1,242 @@
+{
+  "map_name": "SingleFloor_Museum_V3.0",
+  "total_nodes": 18,
+  "fire_origin": "N01",
+  "edge_semantics": "unit_hop",
+  "nodes": [
+    {
+      "id": "N01",
+      "type": "fire",
+      "name": "主大厅",
+      "capacity": 60,
+      "area": 80.0,
+      "desc": "博物馆入口层的挑高主大厅，多条门廊连接相邻展区。",
+      "static_cues": ["挑高开敞空间", "多条门廊连接相邻展区"]
+    },
+    {
+      "id": "N02",
+      "type": "corridor",
+      "name": "过厅",
+      "capacity": 30,
+      "area": 40.0,
+      "desc": "连接各展区的过渡大厅，天花板较高，四周门廊通向不同方向。",
+      "static_cues": ["较高的天花板", "多个方向均有门廊", "局部应急照明"]
+    },
+    {
+      "id": "N03",
+      "type": "room",
+      "name": "展室",
+      "capacity": 35,
+      "area": 45.0,
+      "desc": "陈列着各式古董的展室，展柜形成局部分隔，两侧设有通向相邻区域的门。",
+      "static_cues": ["展柜形成局部分隔", "室内照明仍可辨认", "两侧可见房门"]
+    },
+    {
+      "id": "N04",
+      "type": "room",
+      "name": "教室",
+      "capacity": 25,
+      "area": 35.0,
+      "desc": "博物馆教育活动室，桌椅占据部分空间，仅有一扇门连接展区走廊。",
+      "static_cues": ["桌椅形成局部障碍", "只有一扇可见房门"]
+    },
+    {
+      "id": "N05",
+      "type": "corridor",
+      "name": "中走廊",
+      "capacity": 40,
+      "area": 50.0,
+      "desc": "博物馆中央的主走廊，连接多个区域，多条通道在此交汇。",
+      "static_cues": ["较宽的中央走廊", "多个方向在此交汇", "可见局部方向标识"]
+    },
+    {
+      "id": "N06",
+      "type": "room",
+      "name": "印象展区",
+      "capacity": 35,
+      "area": 45.0,
+      "desc": "照明较弱的绘画展区，墙面展品较多，有多扇门通向不同方向。",
+      "static_cues": ["照明较弱", "多扇门通向不同方向", "墙面展品影响远距离识别"]
+    },
+    {
+      "id": "N07",
+      "type": "corridor",
+      "name": "北侧廊",
+      "capacity": 30,
+      "area": 40.0,
+      "desc": "较宽敞的大理石走廊，一端照明较明亮。",
+      "static_cues": ["宽敞直线走廊", "一端照明较明亮", "可见远处方向标识"]
+    },
+    {
+      "id": "N08",
+      "type": "room",
+      "name": "临时展厅",
+      "capacity": 35,
+      "area": 45.0,
+      "desc": "正在布展的大型临时空间，装置和钢架形成不规则通行区域。",
+      "static_cues": ["较大的开敞展厅", "装置与钢架遮挡部分视线", "两侧可见房门"]
+    },
+    {
+      "id": "N09",
+      "type": "door",
+      "name": "防火门",
+      "capacity": 15,
+      "area": 10.0,
+      "desc": "一扇与周围墙壁颜色相近的防火门，配有推杆装置。",
+      "static_cues": ["门体与墙面颜色接近", "推杆装置不易被远距离识别", "门旁有小型指示灯"]
+    },
+    {
+      "id": "N10",
+      "type": "corridor",
+      "name": "紧急通道",
+      "capacity": 20,
+      "area": 15.0,
+      "desc": "一条较窄的紧急疏散通道，地面有防滑纹路，墙壁上有褪色的疏散贴纸。",
+      "static_cues": ["较窄的直线通道", "照明较弱", "墙面有褪色疏散贴纸"],
+      "status": "Open"
+    },
+
+    {
+      "id": "N11",
+      "type": "exit",
+      "name": "侧门出口",
+      "capacity": 50,
+      "area": 20.0,
+      "desc": "一扇带推杆的金属门，门旁有磨损的疏散贴纸。",
+      "static_cues": ["金属门配有推杆", "门旁有磨损的箭头贴纸", "门框有室外侧光线线索"],
+      "status": "Open"
+    },
+    {
+      "id": "N12",
+      "type": "deadend",
+      "name": "中庭花园",
+      "capacity": 20,
+      "area": 60.0,
+      "desc": "围合的露天中庭，空间开阔且明亮，四周玻璃幕墙不能开启。",
+      "static_cues": ["露天且明亮", "玻璃围护看似通向室外", "未见清晰出口标识"],
+      "is_dead_end": true
+    },
+    {
+      "id": "N13",
+      "type": "room",
+      "name": "临时展区",
+      "capacity": 30,
+      "area": 40.0,
+      "desc": "正在布展的临时空间，墙上有未完工钢架，多扇门连接不同走廊和展厅。",
+      "static_cues": ["钢架遮挡部分视线", "多扇门连接相邻区域", "缺少连续方向标识"]
+    },
+    {
+      "id": "N14",
+      "type": "corridor",
+      "name": "后走廊",
+      "capacity": 25,
+      "area": 35.0,
+      "desc": "较窄的后勤走廊，照明较弱，一侧有门，另一侧继续向内延伸。",
+      "static_cues": ["较窄的后勤走廊", "照明较弱", "一侧房门与纵深方向并存"]
+    },
+    {
+      "id": "N15",
+      "type": "deadend",
+      "name": "封闭院落",
+      "capacity": 15,
+      "area": 30.0,
+      "desc": "开阔的露天小院，四周由高墙围合，没有对外通道。",
+      "static_cues": ["露天且较开阔", "高墙围合", "没有可见对外通道"],
+      "is_dead_end": true
+    },
+    {
+      "id": "N16",
+      "type": "deadend",
+      "name": "储藏室",
+      "capacity": 10,
+      "area": 15.0,
+      "desc": "半掩木门后的狭小储藏空间，内部堆放杂物且没有其他房门。",
+      "static_cues": ["入口木门半掩", "内部狭小且照明弱", "杂物遮挡深处视线"],
+      "is_dead_end": true
+    },
+    {
+      "id": "N17",
+      "type": "room",
+      "name": "西展区",
+      "capacity": 30,
+      "area": 40.0,
+      "desc": "西侧展览区域，展柜形成局部分隔，多个方向可见通道。",
+      "static_cues": ["展柜形成局部分隔", "照明较弱", "多个方向可见通道"]
+    },
+    {
+      "id": "N18",
+      "type": "exit",
+      "name": "员工出口",
+      "capacity": 40,
+      "area": 25.0,
+      "desc": "一扇低调的金属防火门，带压杆并贴有褪色的员工专用标识。",
+      "static_cues": ["金属门配有压杆", "褪色的员工专用标识", "门框有室外侧光线线索"],
+      "status": "Open"
+    }
+  ],
+  "edges": [
+    { "source": "N15", "target": "N17", "dist": 5 },
+    { "source": "N17", "target": "N15", "dist": 5 },
+
+    { "source": "N17", "target": "N01", "dist": 8 },
+    { "source": "N01", "target": "N17", "dist": 8 },
+
+    { "source": "N01", "target": "N03", "dist": 12 },
+    { "source": "N03", "target": "N01", "dist": 12 },
+
+    { "source": "N01", "target": "N05", "dist": 10 },
+    { "source": "N05", "target": "N01", "dist": 10 },
+
+    { "source": "N17", "target": "N06", "dist": 7 },
+    { "source": "N06", "target": "N17", "dist": 7 },
+
+    { "source": "N03", "target": "N02", "dist": 8 },
+    { "source": "N02", "target": "N03", "dist": 8 },
+
+    { "source": "N04", "target": "N06", "dist": 9 },
+    { "source": "N06", "target": "N04", "dist": 9 },
+
+    { "source": "N06", "target": "N05", "dist": 8 },
+    { "source": "N05", "target": "N06", "dist": 8 },
+
+    { "source": "N05", "target": "N02", "dist": 6 },
+    { "source": "N02", "target": "N05", "dist": 6 },
+
+    { "source": "N02", "target": "N07", "dist": 6 },
+    { "source": "N07", "target": "N02", "dist": 6 },
+
+    { "source": "N06", "target": "N10", "dist": 10 },
+    { "source": "N10", "target": "N06", "dist": 10 },
+
+    { "source": "N05", "target": "N09", "dist": 12 },
+    { "source": "N09", "target": "N05", "dist": 12 },
+
+    { "source": "N02", "target": "N13", "dist": 9 },
+    { "source": "N13", "target": "N02", "dist": 9 },
+
+    { "source": "N07", "target": "N08", "dist": 6 },
+    { "source": "N08", "target": "N07", "dist": 6 },
+
+    { "source": "N10", "target": "N09", "dist": 8 },
+    { "source": "N09", "target": "N10", "dist": 8 },
+
+    { "source": "N09", "target": "N13", "dist": 10 },
+    { "source": "N13", "target": "N09", "dist": 10 },
+
+    { "source": "N13", "target": "N08", "dist": 8 },
+    { "source": "N08", "target": "N13", "dist": 8 },
+
+    { "source": "N12", "target": "N10", "dist": 7 },
+    { "source": "N10", "target": "N12", "dist": 7 },
+
+    { "source": "N13", "target": "N14", "dist": 6 },
+    { "source": "N14", "target": "N13", "dist": 6 },
+
+    { "source": "N14", "target": "N16", "dist": 7 },
+    { "source": "N16", "target": "N14", "dist": 7 },
+
+    { "source": "N10", "target": "N11", "dist": 8 },
+
+    { "source": "N08", "target": "N18", "dist": 10 }
+  ]
+}

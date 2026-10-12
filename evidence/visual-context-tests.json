@@ -1,0 +1,12 @@
+{
+  "passed": 6,
+  "checks": [
+    "Running service is updated to v1.4",
+    "Active queued agent uses a labeled contextual summary",
+    "Original observation, state, memory and environment are expandable",
+    "Expanded bubble stays within 1440 x 810 stage",
+    "Expanded content scrolls inside the bubble instead of painting over the timeline",
+    "No rendering or narrative JavaScript errors"
+  ],
+  "errors": []
+}

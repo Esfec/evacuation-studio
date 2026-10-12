@@ -1,0 +1,17 @@
+{
+  "passed": 5,
+  "checks": [
+    "No route intersections or shared passages outside their common modeled room, including D2",
+    "All 18 spaces belong to one building envelope, with every model edge rendered",
+    "D2 perimeter connector and C1 closure render without crossing unrelated rooms",
+    "Research layout fits 1440 x 810",
+    "No JavaScript errors"
+  ],
+  "geometry": {
+    "issues": [],
+    "rooms": 18,
+    "renderedEdges": 23,
+    "baseEdges": 22
+  },
+  "errors": []
+}

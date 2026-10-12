@@ -1,0 +1,21 @@
+const {chromium}=require('playwright');
+const assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path');
+(async()=>{
+ const browser=await chromium.launch({headless:true}),page=await browser.newPage({viewport:{width:1920,height:1080}}),checks=[];
+ const errors=[];page.on('pageerror',e=>errors.push(e.message));
+ await page.goto('http://127.0.0.1:8765');await page.waitForFunction(()=>window.__studio);await page.evaluate(()=>document.fonts.ready);
+ const meta=await (await page.request.get('http://127.0.0.1:8765/api/meta')).json();assert.equal(meta.implementation,'studio-1.4-context-ui');checks.push('Running service is updated to v1.4');
+ const id=await page.evaluate(()=>{window.__studio.setIndex(3);return window.__studio.run.snapshots[3].agents.find(a=>a.action==='EDGE_QUEUE'&&a.observation?.length)?.id});assert.ok(id);await page.selectOption('#agentSelect',id);
+ const txt=await page.locator('.bubble-summary').textContent();assert.match(txt,/排队/);assert.match(await page.locator('.bubble-source').textContent(),/记录综合解说/);checks.push('Active queued agent uses a labeled contextual summary');
+ await page.locator('.bubble-evidence summary').click();assert.ok(await page.locator('.bubble-evidence').evaluate(el=>el.open));checks.push('Original observation, state, memory and environment are expandable');
+ const dir=path.resolve(__dirname,'../../evidence');
+ await page.screenshot({path:path.join(dir,'context-evidence-1920x1080.png')});
+ await page.locator('.bubble-evidence summary').click();await page.click('#showMode');await page.click('#bubbles');await page.waitForTimeout(100);
+ await page.screenshot({path:path.join(dir,'cozy-museum-final.png')});
+ await page.click('#showMode');await page.setViewportSize({width:1440,height:810});await page.locator('.bubble-evidence summary').click();await page.waitForTimeout(100);
+ const fits=await page.evaluate(()=>{const b=document.getElementById('agentBubble').getBoundingClientRect(),s=document.getElementById('stage').getBoundingClientRect();return b.left>=s.left&&b.right<=s.right&&b.top>=s.top&&b.bottom<=s.bottom});assert.ok(fits);checks.push('Expanded bubble stays within 1440 x 810 stage');
+ assert.equal(await page.locator('#agentBubble').evaluate(el=>getComputedStyle(el).overflowY),'auto');checks.push('Expanded content scrolls inside the bubble instead of painting over the timeline');
+ await page.screenshot({path:path.join(dir,'context-evidence-1440x810.png')});
+ assert.equal(errors.length,0);checks.push('No rendering or narrative JavaScript errors');
+ fs.writeFileSync(path.join(dir,'visual-context-tests.json'),JSON.stringify({passed:checks.length,checks,errors},null,2));console.log(JSON.stringify({passed:checks.length}));await browser.close();
+})().catch(e=>{console.error(e);process.exit(1)});

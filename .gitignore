@@ -1,0 +1,36 @@
+# Python / dependencies
+__pycache__/
+*.py[cod]
+*.pyd
+.pytest_cache/
+.venv/
+venv/
+env/
+node_modules/
+.coverage
+htmlcov/
+
+# Credentials (the empty template is safe)
+.env
+.env.*
+!.env.example
+**/.streamlit/secrets.toml
+*secrets*.toml
+*.pem
+*.key
+
+# Local simulation and verification output
+runs/
+work-runs/
+test-results/
+playwright-report/
+evidence/generated/
+*.log
+*.tmp
+*.bak
+
+# Editors / platform
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db

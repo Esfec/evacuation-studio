@@ -1,0 +1,11 @@
+{
+  "passed": 6,
+  "checks": [
+    "Smoke can arrive before high fire risk",
+    "Scenario closure alone creates neither smoke nor fire",
+    "Fire closure does not suppress recorded smoke and fire",
+    "Increasing recorded risk increases visual fire intensity",
+    "Missing or invalid hazard fields do not invent fire",
+    "Renderer is clipped and never mutates input when visual time advances"
+  ]
+}

@@ -1,0 +1,88 @@
+{
+  "cells": [
+    {
+      "profile": "P0",
+      "condition_id": "C0",
+      "seed": 41,
+      "status": "PENDING"
+    },
+    {
+      "profile": "P0",
+      "condition_id": "C0",
+      "seed": 42,
+      "status": "REUSABLE"
+    },
+    {
+      "profile": "P0",
+      "condition_id": "C0",
+      "seed": 43,
+      "status": "PENDING"
+    },
+    {
+      "profile": "P0",
+      "condition_id": "C1",
+      "seed": 41,
+      "status": "PENDING"
+    },
+    {
+      "profile": "P0",
+      "condition_id": "C1",
+      "seed": 42,
+      "status": "REUSABLE"
+    },
+    {
+      "profile": "P0",
+      "condition_id": "C1",
+      "seed": 43,
+      "status": "PENDING"
+    },
+    {
+      "profile": "P1",
+      "condition_id": "C0",
+      "seed": 41,
+      "status": "PENDING"
+    },
+    {
+      "profile": "P1",
+      "condition_id": "C0",
+      "seed": 42,
+      "status": "PENDING"
+    },
+    {
+      "profile": "P1",
+      "condition_id": "C0",
+      "seed": 43,
+      "status": "PENDING"
+    },
+    {
+      "profile": "P1",
+      "condition_id": "C1",
+      "seed": 41,
+      "status": "PENDING"
+    },
+    {
+      "profile": "P1",
+      "condition_id": "C1",
+      "seed": 42,
+      "status": "PENDING"
+    },
+    {
+      "profile": "P1",
+      "condition_id": "C1",
+      "seed": 43,
+      "status": "PENDING"
+    }
+  ],
+  "reusable_count": 2,
+  "pending_count": 10,
+  "profiles": {
+    "P0": {
+      "path": "agent_profiles\\Agent_P0_current.json",
+      "sha256": "c48533b34eb9e37d1ae28ee4b3baa636e98f99be956adc657d0c148b08cc43b7"
+    },
+    "P1": {
+      "path": "agent_profiles\\Agent_P1_moderate.json",
+      "sha256": "119278c3b653434c91a3f54c519ff0e55346bb2590f6475f82f54a7c38dbfc8c"
+    }
+  }
+}

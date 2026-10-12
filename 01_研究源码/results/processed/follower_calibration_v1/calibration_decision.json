@@ -1,0 +1,91 @@
+{
+  "status": "COMPLETE",
+  "selected_profile": "P0",
+  "profiles": {
+    "P0": {
+      "passes": true,
+      "gates": {
+        "all_runs_quality_pass": true,
+        "follower_not_uniform_boundary": true,
+        "mixed_outcomes_in_at_least_two_runs": true,
+        "stress_override_nonzero_below_0_50": true,
+        "c1_median_not_better_than_c0": true,
+        "at_least_two_distinguishable_dimensions": true
+      },
+      "boundary_concentration": false,
+      "mixed_run_count": 6,
+      "median_follower_escape_rate_c0": 0.13043478260869565,
+      "median_follower_escape_rate_c1": 0.08695652173913043,
+      "distinguishability": {
+        "escape_rate": {
+          "range": 0.836232,
+          "threshold": 0.1,
+          "passes": true
+        },
+        "mean_smoke": {
+          "range": 3.150587,
+          "threshold": 0.25,
+          "passes": true
+        },
+        "mean_backtracks": {
+          "range": 1.266667,
+          "threshold": 0.5,
+          "passes": true
+        },
+        "mean_final_panic": {
+          "range": 0.685273,
+          "threshold": 0.1,
+          "passes": true
+        },
+        "stress_override_ratio": {
+          "range": 0.352725,
+          "threshold": 0.05,
+          "passes": true
+        }
+      }
+    },
+    "P1": {
+      "passes": true,
+      "gates": {
+        "all_runs_quality_pass": true,
+        "follower_not_uniform_boundary": true,
+        "mixed_outcomes_in_at_least_two_runs": true,
+        "stress_override_nonzero_below_0_50": true,
+        "c1_median_not_better_than_c0": true,
+        "at_least_two_distinguishable_dimensions": true
+      },
+      "boundary_concentration": false,
+      "mixed_run_count": 6,
+      "median_follower_escape_rate_c0": 0.2608695652173913,
+      "median_follower_escape_rate_c1": 0.17391304347826086,
+      "distinguishability": {
+        "escape_rate": {
+          "range": 0.773188,
+          "threshold": 0.1,
+          "passes": true
+        },
+        "mean_smoke": {
+          "range": 2.980092,
+          "threshold": 0.25,
+          "passes": true
+        },
+        "mean_backtracks": {
+          "range": 1.738889,
+          "threshold": 0.5,
+          "passes": true
+        },
+        "mean_final_panic": {
+          "range": 0.645416,
+          "threshold": 0.1,
+          "passes": true
+        },
+        "stress_override_ratio": {
+          "range": 0.17463,
+          "threshold": 0.05,
+          "passes": true
+        }
+      }
+    }
+  },
+  "interpretation_limit": "This calibration establishes operational non-degeneracy and sensitivity, not empirical behavioural validity."
+}

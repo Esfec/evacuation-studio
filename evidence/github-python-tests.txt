@@ -1,0 +1,16 @@
+................................................ss...................... [ 49%]
+........................................................................ [ 98%]
+..                                                                       [100%]
+============================== warnings summary ===============================
+D:\anaconda3\Lib\site-packages\google\protobuf\internal\well_known_types.py:91
+  D:\anaconda3\Lib\site-packages\google\protobuf\internal\well_known_types.py:91: DeprecationWarning: datetime.datetime.utcfromtimestamp() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.fromtimestamp(timestamp, datetime.UTC).
+    _EPOCH_DATETIME_NAIVE = datetime.datetime.utcfromtimestamp(0)
+
+01_研究源码/tests/test_app_ui.py::test_ui_exposes_policy_design_and_condition_selectors
+  D:\anaconda3\Lib\site-packages\streamlit\util.py:227: RuntimeWarning: coroutine 'expire_cache' was never awaited
+    pass
+  Enable tracemalloc to get traceback where the object was allocated.
+  See https://docs.pytest.org/en/stable/how-to/capture-warnings.html#resource-warnings for more info.
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+144 passed, 2 skipped, 2 warnings in 6.09s

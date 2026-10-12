@@ -1,0 +1,2 @@
+# Keep frozen source hashes identical after upload and clone.
+* -text

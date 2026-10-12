@@ -1,0 +1,20 @@
+{
+  "passed": 11,
+  "checks": [
+    "Eight original exhibition cards are available",
+    "Exhibit card identifies decorative artwork and recorded room data",
+    "Exhibition hotspot on the map opens the matching card",
+    "Paused effects never change simulation state",
+    "Static mode is selectable",
+    "Static mode produces a stable canvas",
+    "Scrubbing backward restores earlier hazard counts",
+    "Simple mode is selectable",
+    "Extended toolbar fits without overlapping the caption",
+    "Reduced-motion preference defaults to static",
+    "No JavaScript errors"
+  ],
+  "timings": {
+    "meanFrameMs": 16.666666666666668
+  },
+  "errors": []
+}

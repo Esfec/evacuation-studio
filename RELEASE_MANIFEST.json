@@ -1,0 +1,1039 @@
+{
+  "release_date": "2026-10-12",
+  "package": "evacuation-studio",
+  "simulation_implementation": "studio-1.4-context-ui",
+  "frontend": "museum-ui-1.6",
+  "source_identical_files": 149,
+  "text_files_scanned": 158,
+  "credential_findings": 0,
+  "excluded": [
+    "local raw runs",
+    "credentials",
+    "dependency and Python caches",
+    "Git history",
+    "private handover notes"
+  ],
+  "license_status": "Source license not selected; bundled font is SIL OFL 1.1",
+  "files": [
+    {
+      "path": ".env.example",
+      "size": 253,
+      "sha256": "100e6fec031fa2885f23861caa9a9eb0b15f72ee3e422eeae1f23f44b867f518",
+      "source_identical": false
+    },
+    {
+      "path": ".gitattributes",
+      "size": 175,
+      "sha256": "7a06653b8890e31da2a7f6bb8ba0ffcbf7631cf9027ce6d05736837e9d247393",
+      "source_identical": false
+    },
+    {
+      "path": ".github/workflows/checks.yml",
+      "size": 911,
+      "sha256": "2b836feb0728c8c25ef2e06eedcf4a8f7068ef925b2cc613684fc1db22227c6e",
+      "source_identical": false
+    },
+    {
+      "path": ".gitignore",
+      "size": 433,
+      "sha256": "89060eca4bd277947672475ba489ca6ee7901afa729f7563a37392d55cb700e5",
+      "source_identical": false
+    },
+    {
+      "path": "01_研究源码/.env.example",
+      "size": 253,
+      "sha256": "5cd9862545d12ec7c954ed93a5c8df08d6e213431e5d0dffda5fbb3df7396a43",
+      "source_identical": true
+    },
+    {
+      "path": "01_研究源码/.gitattributes",
+      "size": 70,
+      "sha256": "32208ff7a1aa666927cff0e799635712faa3c2d83441066e2b2929be81425ffc",
+      "source_identical": false
+    },
+    {
+      "path": "01_研究源码/.gitignore",
+      "size": 478,
+      "sha256": "907a112d79011bc6b72e550af36638bd226118e837c880566683c197e0451713",
+      "source_identical": true
+    },
+    {
+      "path": "01_研究源码/Agent.json",
+      "size": 4334,
+      "sha256": "8378cd537a7361a44956cbec265bf0d43b182ca2832d8c1a0b796c4a274316b6",
+      "source_identical": true
+    },
+    {
+      "path": "01_研究源码/agent_profiles/Agent_P0_current.json",
+      "size": 3038,
+      "sha256": "c48533b34eb9e37d1ae28ee4b3baa636e98f99be956adc657d0c148b08cc43b7",
+      "source_identical": true
+    },
+    {
+      "path": "01_研究源码/agent_profiles/Agent_P1_moderate.json",
+      "size": 3082,
+      "sha256": "c42ff42d5b7f384b99485202fb8be3b5823aa0aa18dddc08ffa191343aaaf8e3",
+      "source_identical": true
+    },
+    {
+      "path": "01_研究源码/agent_profiles/formal_profile_lock.json",
+      "size": 806,
+      "sha256": "16d6670d3aa0fdc515174749e644d85c7d4b7ce3fe305d68b952500693273e13",
+      "source_identical": true
+    },
+    {
+      "path": "01_研究源码/analysis.py",
+      "size": 15984,
+      "sha256": "0ee718e07882a5dd481c0eecf04f6e8fd832615792196889ccf8c1c10904903b",
+      "source_identical": true
+    },
+    {
+      "path": "01_研究源码/app.py",
+      "size": 50759,
+      "sha256": "0c4d6f0f3f406d183327fc6a964c55e81d420d8ad54080543a4c126953c9aa83",
+      "source_identical": true
+    },
+    {
+      "path": "01_研究源码/batch_runner.py",
+      "size": 9691,
+      "sha256": "8b6460c3dc9b85fa8daf7c91ed7ae7f8235d525a1bfaf1894a059f78438d680e",
+      "source_identical": true
+    },
+    {
+      "path": "01_研究源码/config.py",
+      "size": 7490,
+      "sha256": "860d2877228a7167a03c0b0ab1a729cf26d665dec55e4a8d81041823223f34be",
+      "source_identical": true
+    },
+    {
+      "path": "01_研究源码/docs/experiment_data_dictionary_v1.md",
+      "size": 2484,
+      "sha256": "1a62fff9fa181fd8c0024d75319d195d380060b3625a3c6de7fab6e6b7678c18",
+      "source_identical": true
+    },
+    {
+      "path": "01_研究源码/docs/paper_scientific_framework_v1.md",
+      "size": 2195,
+      "sha256": "e620d9b33536aa993074d14762d1753f932817d428efe2ba66f8a475599ee234",
+      "source_identical": true
+    },
+    {
+      "path": "01_研究源码/docs/RELEASE_REVIEW.md",
+      "size": 5079,
+      "sha256": "e3e5b49a8f6178cb595eb89604f223a9ab7954f83903a6509fadab9142d9448c",
+      "source_identical": true
+    },
+    {
+      "path": "01_研究源码/engine.py",
+      "size": 88930,
+      "sha256": "1e5f8433ca9058f15ff36429f0fb4ee55de928e6f06b0042b916c8bdd3426402",
+      "source_identical": true
+    },
+    {
+      "path": "01_研究源码/figures/+figure1_framework.png",
+      "size": 842933,
+      "sha256": "0f0ed994d625ef79c53f3f303184896c7672277144e1e1a96c2f14a5b41cdc13",
+      "source_identical": true
+    },
+    {
+      "path": "01_研究源码/figures/+figure1_framework.svg",
+      "size": 48948,
+      "sha256": "7daf4f76e7cde140a98179edc41d1b85feee0419d6cfbee88f92f51447ae56bf",
+      "source_identical": true
+    },
+    {
+      "path": "01_研究源码/figures/+figure2_topology.png",
+      "size": 459826,
+      "sha256": "2068cc432bb78a1dad5d9240eecc641fbb4eb6b9200d5f9815e0332b00f12937",
+      "source_identical": true
+    },
+    {
+      "path": "01_研究源码/figures/+figure2_topology.svg",
+      "size": 27621,
+      "sha256": "e1de6dcf8ee786d52c659b321d6b3671e82fd794da4b577e6c408ab35e2554da",
+      "source_identical": true
+    },
+    {
+      "path": "01_研究源码/figures/+figure3_performance.png",
+      "size": 247598,
+      "sha256": "764fcf9022039f72ab5d9d43ff835f34fba2c681dfb123e453f55e731886b86c",
+      "source_identical": true
+    },
+    {
+      "path": "01_研究源码/figures/+figure3_performance.svg",
+      "size": 28090,
+      "sha256": "442e1de463a6a81c36c5795671ca8f2178aa81e53bf7f433de7e9d828841ebaf",
+      "source_identical": true
+    },
+    {
+      "path": "01_研究源码/figures/+figure4_failure_geography.png",
+      "size": 385307,
+      "sha256": "1d33afb726bc656462ef042bb3130fdce6f9ba0f5b7c3b022d5e03e4addde963",
+      "source_identical": true
+    },
+    {
+      "path": "01_研究源码/figures/+figure4_failure_geography.svg",
+      "size": 43764,
+      "sha256": "422e5534b00514873d6ddd16551f72e799cd69c36ca62e5aeeb37475606c7c7c",
+      "source_identical": true
+    },
+    {
+      "path": "01_研究源码/figures/+figure5_archetypes.png",
+      "size": 217568,
+      "sha256": "27e61e49241713c588398bdcf88964d56d69cd4bf34bbdbed438b924eb6018bf",
+      "source_identical": true
+    },
+    {
+      "path": "01_研究源码/figures/+figure5_archetypes.svg",
+      "size": 24351,
+      "sha256": "bff6814a418da0a024aa49db46b7f801ecbd033e0491a6ab548484515b7e5204",
+      "source_identical": true
+    },
+    {
+      "path": "01_研究源码/follower_calibration.py",
+      "size": 16148,
+      "sha256": "9f5ba24e9d2c901303a4357bca4214ed80924e98cab40cb9604248ad76df23ae",
+      "source_identical": true
+    },
+    {
+      "path": "01_研究源码/llm_api.py",
+      "size": 12109,
+      "sha256": "5a40f5d42abb27c9e99d19dd0c4a672f26c097c440989db1832e74aaf6192238",
+      "source_identical": true
+    },
+    {
+      "path": "01_研究源码/llm_audit.py",
+      "size": 8631,
+      "sha256": "1a00e5ab9c5ebbc0e67affe9c4853c5a171ee91c070e34f82c0e689f234c4c04",
+      "source_identical": true
+    },
+    {
+      "path": "01_研究源码/Map.json",
+      "size": 8626,
+      "sha256": "60943700df24d4295b5788d178a016b5930392848a71cce3cb8adb764dd6339b",
+      "source_identical": true
+    },
+    {
+      "path": "01_研究源码/movement.py",
+      "size": 2706,
+      "sha256": "bb1508d49be897479c2de52d52b1b44385c1f65d98b238148e975c5949a569fe",
+      "source_identical": true
+    },
+    {
+      "path": "01_研究源码/observation.py",
+      "size": 2698,
+      "sha256": "770f412bb64c6066a2d82a4bce33069b5294aa477ed493ac8668ddf56071792c",
+      "source_identical": true
+    },
+    {
+      "path": "01_研究源码/policies.py",
+      "size": 3714,
+      "sha256": "3e5ba41f746dfa87ae147cf5f34cc84822f1a9c0bfdce0cb36aadab274ce75ec",
+      "source_identical": true
+    },
+    {
+      "path": "01_研究源码/README.md",
+      "size": 7128,
+      "sha256": "fc37eb3f5acf1c7f63338df599050c88c536322fcff999a9a7cd73ad2148b4d7",
+      "source_identical": true
+    },
+    {
+      "path": "01_研究源码/recorder.py",
+      "size": 76066,
+      "sha256": "0c683ae515f54bf0ffd562ccf54f683616cd7fecc2765c205d89705c143e8d3a",
+      "source_identical": true
+    },
+    {
+      "path": "01_研究源码/renderer.py",
+      "size": 23322,
+      "sha256": "10ef2a8dd1b506a74c49e686a23f34613d2bed0307ca70a5b0a40c0ba1f8946d",
+      "source_identical": true
+    },
+    {
+      "path": "01_研究源码/renderer_3d.py",
+      "size": 14915,
+      "sha256": "d5e2b9fe79b3d8751c4ae4bd789796b955c10fbe346fac17e2b8f202dfedd1c5",
+      "source_identical": true
+    },
+    {
+      "path": "01_研究源码/requirements.txt",
+      "size": 235,
+      "sha256": "50d87f61bd16d1b0c54950b3d07989d2595436316b63a3f28d374ae925f43806",
+      "source_identical": true
+    },
+    {
+      "path": "01_研究源码/research_analysis/analyze_llm_increment.py",
+      "size": 2388,
+      "sha256": "e95aac654d33b9ba56cfd5081b79cf447139e9760d9f2e3ea99a34e151ea581d",
+      "source_identical": true
+    },
+    {
+      "path": "01_研究源码/results/processed/follower_calibration_v1/calibration_by_type.csv",
+      "size": 3739,
+      "sha256": "15820de65c4575d3161ff372baf8656a5842adb283db922b843a0872abe933a2",
+      "source_identical": true
+    },
+    {
+      "path": "01_研究源码/results/processed/follower_calibration_v1/calibration_decision.json",
+      "size": 2692,
+      "sha256": "3a4c2ad1a734a3f72daee7b5bad9461c30db072b3da0291f508f2e10b8942302",
+      "source_identical": true
+    },
+    {
+      "path": "01_研究源码/results/processed/follower_calibration_v1/calibration_manifest.json",
+      "size": 1496,
+      "sha256": "5fbd459c0f1a128262caff8a5a60fe69df8787e50412020153ea3927bd91186f",
+      "source_identical": true
+    },
+    {
+      "path": "01_研究源码/results/processed/follower_calibration_v1/calibration_plan.json",
+      "size": 1785,
+      "sha256": "23c1996d9db6b67118f31c3b346fad6f880d0e672b277265b45d12feb26ffeee",
+      "source_identical": true
+    },
+    {
+      "path": "01_研究源码/results/processed/follower_calibration_v1/calibration_report.md",
+      "size": 220,
+      "sha256": "8ebe0280d847bac81dbbf39b30ef2fbeb3141cf9ee2d83791d95a2e250d56c3a",
+      "source_identical": true
+    },
+    {
+      "path": "01_研究源码/results/processed/follower_calibration_v1/calibration_runs.csv",
+      "size": 1505,
+      "sha256": "61b52cf1752531f6437b976ed004ef571872cfb22c561a5215eacb47b550ead5",
+      "source_identical": true
+    },
+    {
+      "path": "01_研究源码/results/processed/formal_baselines_p0_v1/paper_summary_v1.csv",
+      "size": 86936,
+      "sha256": "f32df25fbad917ec911bf5de11f76664162e28979a03f1ecab3803eba6f2f146",
+      "source_identical": true
+    },
+    {
+      "path": "01_研究源码/results/processed/formal_baselines_p0_v1/summary_v4.csv",
+      "size": 284259,
+      "sha256": "943a99b0a6629e4e3114371b4f182a782b62626b0eda7108b0f034659645a73d",
+      "source_identical": true
+    },
+    {
+      "path": "01_研究源码/results/processed/formal_design_p0_v1/formal_analysis_report.md",
+      "size": 6156,
+      "sha256": "402a9ead9b1ec11131ef2ec774c89a9f295bd4013bf8f05137a2c51d54a7db71",
+      "source_identical": true
+    },
+    {
+      "path": "01_研究源码/results/processed/formal_design_p0_v1/paper_summary_v1.csv",
+      "size": 22061,
+      "sha256": "79534d6171136d388d2c14d409aa675d049b42c3173955683584c9cd68229102",
+      "source_identical": true
+    },
+    {
+      "path": "01_研究源码/results/processed/formal_design_p0_v1/summary_v4.csv",
+      "size": 74498,
+      "sha256": "738aa3901e28fc1baaeb799d2ed305d759c82773313d5e2335ea53516d9aa6b4",
+      "source_identical": true
+    },
+    {
+      "path": "01_研究源码/results/processed/llm_audit_pair_v41_seed42/llm_audit_report.json",
+      "size": 1408,
+      "sha256": "968af76865eb14b853eb763f18ce1bf931eef521b50ab27af28eb25f9182e2c3",
+      "source_identical": true
+    },
+    {
+      "path": "01_研究源码/results/processed/llm_audit_pair_v41_seed42/llm_audit_report.md",
+      "size": 1358,
+      "sha256": "edc47ca24c5aad345992866300d7b6b9c6a00011d5c9c975e7147dd0cacfe7ad",
+      "source_identical": true
+    },
+    {
+      "path": "01_研究源码/results/processed/llm_audit_pair_v41_seed42/paper_summary_v1.csv",
+      "size": 898,
+      "sha256": "e29f25c27163d36944c22ccfb8d0ea5db23456290189214b9f1f42231dbd12ab",
+      "source_identical": true
+    },
+    {
+      "path": "01_研究源码/results/processed/llm_audit_pair_v41_seed42/summary_v4.csv",
+      "size": 1659,
+      "sha256": "2d2c5c73c11d1805f895343e1292615501761f128178f01056cbcfee86f96295",
+      "source_identical": true
+    },
+    {
+      "path": "01_研究源码/results/processed/matched_ablation/llm_increment_analysis.json",
+      "size": 2615,
+      "sha256": "c83fefc1d2561c50b2d7b412560a571033f3add803f3bf5576f3debcaf504f01",
+      "source_identical": true
+    },
+    {
+      "path": "01_研究源码/results/processed/matched_ablation/llm_off_ablation_c1/run_summary.csv",
+      "size": 6606,
+      "sha256": "40cbb16a3f9a13e341af5da796426793ce758907c6b165fb3a5ce45754fcd791",
+      "source_identical": true
+    },
+    {
+      "path": "01_研究源码/results/processed/matched_ablation/policy_diagnostic_run_metrics.csv",
+      "size": 11946,
+      "sha256": "2f9e3605eceb8d3f03626dfa3777d1b8458c29bfbfe37cfe30d64f2c7ea6e2da",
+      "source_identical": true
+    },
+    {
+      "path": "01_研究源码/results/README.md",
+      "size": 1273,
+      "sha256": "a951e0a242505c53a4bd07e27167145b860cab4a8d14cd488849c089515b8b83",
+      "source_identical": true
+    },
+    {
+      "path": "01_研究源码/run_config.py",
+      "size": 5282,
+      "sha256": "1bbdcafd6927c9ee9a84c08b967303ce32080c847c17c31da10ee1a87d8326d9",
+      "source_identical": true
+    },
+    {
+      "path": "01_研究源码/run_follower_calibration_deepseek.cmd",
+      "size": 1444,
+      "sha256": "43b173dc15952359d9d642d1cfe02f9b85f0b9d2bee053c388e5db912fe425cd",
+      "source_identical": true
+    },
+    {
+      "path": "01_研究源码/run_formal_baselines_p0.cmd",
+      "size": 590,
+      "sha256": "cdf9e86569d79f5d91361641a2afce57e45ec247d603a7bf956b841229a2d14e",
+      "source_identical": true
+    },
+    {
+      "path": "01_研究源码/run_formal_design_p0_deepseek.cmd",
+      "size": 834,
+      "sha256": "55443f7c9e3daf9a84b5fbef8c4b3dcc28ffcd2969b291a87bc57cb06b9c18d6",
+      "source_identical": true
+    },
+    {
+      "path": "01_研究源码/run_llm_audit_pair.cmd",
+      "size": 862,
+      "sha256": "c742d6be75311e86a0a13a7782b1b2591910bf4f0614082535714560799ab6c3",
+      "source_identical": true
+    },
+    {
+      "path": "01_研究源码/scenarios.py",
+      "size": 2897,
+      "sha256": "85caf793a1b2d2ab166988c950ddc936bfd46dde887d3f0c900bfb21d7c07ec1",
+      "source_identical": true
+    },
+    {
+      "path": "01_研究源码/tests/test_app_ui.py",
+      "size": 2244,
+      "sha256": "703e214bcdbb2e59b27710692d6e3434b29b8dff231975db34ed48fae9497e45",
+      "source_identical": true
+    },
+    {
+      "path": "01_研究源码/tests/test_audit_logs.py",
+      "size": 4962,
+      "sha256": "2c30163e3dd736eb8bcea6b43aa1b699eca456d2c948cde4baa27e007cc24322",
+      "source_identical": true
+    },
+    {
+      "path": "01_研究源码/tests/test_batch_runner.py",
+      "size": 1746,
+      "sha256": "1e28d95750bd2c0eea40062c14346e0ff0bba7870279c9395e9f4aa655bde5c0",
+      "source_identical": true
+    },
+    {
+      "path": "01_研究源码/tests/test_deepseek_output.py",
+      "size": 1423,
+      "sha256": "42c84813ffa89f9eef1b9a89cf2914079f5b9998990e3f097ce72f9e29cfecb7",
+      "source_identical": true
+    },
+    {
+      "path": "01_研究源码/tests/test_engine_consistency.py",
+      "size": 6632,
+      "sha256": "c9864369c27b50a947ed124dfa7b9f809e078f45b1f6915e2b42500861869b48",
+      "source_identical": true
+    },
+    {
+      "path": "01_研究源码/tests/test_final_config_audit.py",
+      "size": 1539,
+      "sha256": "4675ede3826caffde673f417efe56d34009ce6158bf0841f078379bca2ed2f5f",
+      "source_identical": true
+    },
+    {
+      "path": "01_研究源码/tests/test_final_mechanism_audit.py",
+      "size": 2503,
+      "sha256": "687ba8b01acff8643913c720f7931d1fed50b211f2837ec25c7d2dcefa7545de",
+      "source_identical": true
+    },
+    {
+      "path": "01_研究源码/tests/test_follower_calibration.py",
+      "size": 6998,
+      "sha256": "9208c01ed4f432aaff6f00c401258d1f81515b3a3b3420581f48d2ff377364e2",
+      "source_identical": true
+    },
+    {
+      "path": "01_研究源码/tests/test_formal_experiment_scripts.py",
+      "size": 1579,
+      "sha256": "2e70e9a5f5b58d5e0318646a5282bfb22b0c80fed6cc347bdb9eb996bc462744",
+      "source_identical": true
+    },
+    {
+      "path": "01_研究源码/tests/test_llm_audit_contract.py",
+      "size": 3504,
+      "sha256": "2d87c44a6e152e0a024185cca3685c9ed4c8583941fc9db5382aea92b689c5b4",
+      "source_identical": true
+    },
+    {
+      "path": "01_研究源码/tests/test_llm_audit_report.py",
+      "size": 3661,
+      "sha256": "699aecfaf826b464bc4bb47d2befe200620e50b02c7a71e1f1f2d659d93b5820",
+      "source_identical": true
+    },
+    {
+      "path": "01_研究源码/tests/test_llm_failures.py",
+      "size": 1466,
+      "sha256": "0f11f5a834e15a0514412e6d0bcbc5bb93b2501aa6ef6294dd3187535bb17e6b",
+      "source_identical": true
+    },
+    {
+      "path": "01_研究源码/tests/test_movement.py",
+      "size": 4005,
+      "sha256": "cd9ddf27ca85033607bd205e86e2dcd1435a810e5de808885a467e112ce5c888",
+      "source_identical": true
+    },
+    {
+      "path": "01_研究源码/tests/test_observation_contract.py",
+      "size": 8222,
+      "sha256": "f8705544cf9bb95ecc642e3b5171b33ca6751d218089cd45e1d3e7f53586d58c",
+      "source_identical": true
+    },
+    {
+      "path": "01_研究源码/tests/test_policies.py",
+      "size": 1505,
+      "sha256": "548d2ac0da52e07b61e63ba86a70a933e53634205f3f50c2a86a655505cc1f4f",
+      "source_identical": true
+    },
+    {
+      "path": "01_研究源码/tests/test_recorder_v4.py",
+      "size": 3480,
+      "sha256": "c132daccba502d057193167e166c6c04a7ae7d91e4630b04af78bf8338d3b778",
+      "source_identical": true
+    },
+    {
+      "path": "01_研究源码/tests/test_release_regressions.py",
+      "size": 4555,
+      "sha256": "bd3bac70ec9a1fc511ceddfcf1b7a6b866b664c9b6224e6deec3d0d216c79bab",
+      "source_identical": true
+    },
+    {
+      "path": "01_研究源码/tests/test_run_config.py",
+      "size": 1007,
+      "sha256": "ae8b82196d19def35eeed318da5a9bbc16d11ce7dcd9de4ab3c4f9b8918e98f6",
+      "source_identical": true
+    },
+    {
+      "path": "01_研究源码/tests/test_scenarios.py",
+      "size": 2013,
+      "sha256": "ec0b449065739bff8a84cb1589430848be2679295a03a17a5d080296f7593b2a",
+      "source_identical": true
+    },
+    {
+      "path": "02_可视化沙盒/agent-narrative.js",
+      "size": 4298,
+      "sha256": "1d0d268f7283c95677542b1fded50aaef7854f54b39d4049820956412ce88e03",
+      "source_identical": true
+    },
+    {
+      "path": "02_可视化沙盒/build_demo.py",
+      "size": 1253,
+      "sha256": "9f52977ebcda1400555480c7de7b2d9d6eefeeeaa7f2ff8dbc9f790800400937",
+      "source_identical": true
+    },
+    {
+      "path": "02_可视化沙盒/build_font.py",
+      "size": 6309,
+      "sha256": "4b1931edb1026ba166683c369659aab173864fc09b7f9f87e72bd5504f102a2a",
+      "source_identical": true
+    },
+    {
+      "path": "02_可视化沙盒/bundle.py",
+      "size": 2521,
+      "sha256": "3bf80ed1bf4a3a5610dcdd9c6006381f9b7b1084456d44796861f55b01d62f37",
+      "source_identical": true
+    },
+    {
+      "path": "02_可视化沙盒/default-settings.json",
+      "size": 579,
+      "sha256": "1163e43e5c83d53b845d3ecaab807d1b9846ca86487c3ffed7134b1d6382fd77",
+      "source_identical": true
+    },
+    {
+      "path": "02_可视化沙盒/export_replay.py",
+      "size": 12704,
+      "sha256": "6564a532bf372fc6d43da7f8700a05f4c098f9bd71b0bc6eea42bdb581ff63c9",
+      "source_identical": true
+    },
+    {
+      "path": "02_可视化沙盒/font/fusion-pixel-12px-proportional-sc.woff2",
+      "size": 602304,
+      "sha256": "043eae5e616b0d1e75dc746d3d687b4413f9f1c70c1a09bc4ebb705ef1cc8e32",
+      "source_identical": true
+    },
+    {
+      "path": "02_可视化沙盒/font/LICENSE-font.txt",
+      "size": 18993,
+      "sha256": "a0e37147ea540c0a2f46039aac2c8fa42b0457018cb49bcd6a5771619c46a7a7",
+      "source_identical": true
+    },
+    {
+      "path": "02_可视化沙盒/font_data.js",
+      "size": 803213,
+      "sha256": "f8c2a8dff6e966afb94c38887283afd38a2a7104ad6dd558d24d63953516cd3f",
+      "source_identical": true
+    },
+    {
+      "path": "02_可视化沙盒/font_subset.css",
+      "size": 154946,
+      "sha256": "33f4c549a1406288f5400a8d8a341171fe2aee368bd3ce99e9b2eb9abe906dba",
+      "source_identical": true
+    },
+    {
+      "path": "02_可视化沙盒/font_subset.woff2",
+      "size": 116024,
+      "sha256": "01624111383737c9cb7ece6079de43e2c6f84a16b30bd328ec58949cb35767c2",
+      "source_identical": true
+    },
+    {
+      "path": "02_可视化沙盒/index.html",
+      "size": 12321,
+      "sha256": "a65a75aed51e6e4e53a585f65920a7a27cf0b796ab08099c6e1b7fda24f9fc64",
+      "source_identical": true
+    },
+    {
+      "path": "02_可视化沙盒/live_server.py",
+      "size": 137,
+      "sha256": "aa802c1ee78e00c4f24fdf73393edeb0202089ba18ca67ca181e3755c07e082b",
+      "source_identical": true
+    },
+    {
+      "path": "02_可视化沙盒/package-lock.json",
+      "size": 1661,
+      "sha256": "6ecfff2bff8f69c190f0dc1ed57caeceed1ded2a4b7c26480ee5dffd57925e27",
+      "source_identical": true
+    },
+    {
+      "path": "02_可视化沙盒/package.json",
+      "size": 111,
+      "sha256": "fd8c6e5fb6bfca45baa8968052e9e62ea3195e35f2111904411c449eb72c3246",
+      "source_identical": true
+    },
+    {
+      "path": "02_可视化沙盒/pixel-world.js",
+      "size": 14964,
+      "sha256": "f697057857b593a621f7fe52a42c453b0a8d31a397bb76e8d7936ee88876a93a",
+      "source_identical": true
+    },
+    {
+      "path": "02_可视化沙盒/README.md",
+      "size": 1509,
+      "sha256": "efb65ff70777e617d8c8fe711345203898356b43feb2c08d82d2eb9b510ec3c9",
+      "source_identical": true
+    },
+    {
+      "path": "02_可视化沙盒/replay_data.js",
+      "size": 1407562,
+      "sha256": "30c224712f75c09dadb5155f087d64c1522b843cfe82b0532b298015b788121d",
+      "source_identical": true
+    },
+    {
+      "path": "02_可视化沙盒/run_cli.py",
+      "size": 2500,
+      "sha256": "fa3bde578eab50a9d640f30e7fe1275e2f7f542ffe6e607fbaf450f7b92700ac",
+      "source_identical": true
+    },
+    {
+      "path": "02_可视化沙盒/scene-effects.js",
+      "size": 3528,
+      "sha256": "59aa9feb260c61b088fd6d0c109252cb2468c509df9ed899fa05d144cdb218db",
+      "source_identical": true
+    },
+    {
+      "path": "02_可视化沙盒/settings-ui.js",
+      "size": 7426,
+      "sha256": "60f6e30817f2780463139a8df2fa780ae8788a094f8edd4c9f2e1d1ba8d4af96",
+      "source_identical": true
+    },
+    {
+      "path": "02_可视化沙盒/settings.py",
+      "size": 4412,
+      "sha256": "751789b93a64a7c951e62f9a819fde9fe437fa808d9375280f0ac660fecb211e",
+      "source_identical": true
+    },
+    {
+      "path": "02_可视化沙盒/studio.css",
+      "size": 18189,
+      "sha256": "32a3b9a64dcf651437193ae2f89eb2c03f7283226d0e9e00aeef9bb08c9d32ee",
+      "source_identical": true
+    },
+    {
+      "path": "02_可视化沙盒/studio.js",
+      "size": 43906,
+      "sha256": "8b362b843ab33c2534bfd1b6b67af3f83e101cce115e732d180f5df94546d0ee",
+      "source_identical": true
+    },
+    {
+      "path": "02_可视化沙盒/studio_data.js",
+      "size": 14436331,
+      "sha256": "faa7c346fb8ebc3a906ab7606cdaa8b272612bf1d592b01938a41e6044b95eb6",
+      "source_identical": true
+    },
+    {
+      "path": "02_可视化沙盒/studio_server.py",
+      "size": 19445,
+      "sha256": "73dd87f469cf4034edcf69bdd5698c8f8ecd4345cf434da542710263518e6727",
+      "source_identical": true
+    },
+    {
+      "path": "02_可视化沙盒/tests/browser.cjs",
+      "size": 8945,
+      "sha256": "b1004c73c1a4fb0c3722f99932eecf90cb64cca9563870e05480a1e63ce9d26e",
+      "source_identical": true
+    },
+    {
+      "path": "02_可视化沙盒/tests/building-layout.cjs",
+      "size": 3851,
+      "sha256": "dc8fff36ec9a6e7d495a3464149d754fb1690da17e66076adbf2fed219d98347",
+      "source_identical": true
+    },
+    {
+      "path": "02_可视化沙盒/tests/effects-browser.cjs",
+      "size": 5219,
+      "sha256": "30da9622c28e86b22a3ad904b02d2cf98da8dee44b3854858945ea099a2f95b1",
+      "source_identical": true
+    },
+    {
+      "path": "02_可视化沙盒/tests/narrative.cjs",
+      "size": 3161,
+      "sha256": "a157a2d65847064fed09308ad5bf150fbe11f84f0f4487213cef4cf0818bf642",
+      "source_identical": true
+    },
+    {
+      "path": "02_可视化沙盒/tests/scene-effects.cjs",
+      "size": 1733,
+      "sha256": "0161e14b939f1dcb87e8524c8abe30bea5c80ec784ee9e8758883fae9201f0d8",
+      "source_identical": true
+    },
+    {
+      "path": "02_可视化沙盒/tests/test_decision_validation.py",
+      "size": 2047,
+      "sha256": "f5f4e54ab45a9ce9beb03139726e854f8abb0a3fca4fa63a08a7bc073daf6241",
+      "source_identical": true
+    },
+    {
+      "path": "02_可视化沙盒/tests/test_final_service_audit.py",
+      "size": 900,
+      "sha256": "439ba84b85eb7a59b11f104fcdac0069fae462410e56cbd8213cb92a0856dc05",
+      "source_identical": true
+    },
+    {
+      "path": "02_可视化沙盒/tests/test_live.py",
+      "size": 5808,
+      "sha256": "116c250135cce2bee23e11b81d4cdbf16a443dfda3b23eb1aeb2f7fd786d50d3",
+      "source_identical": true
+    },
+    {
+      "path": "02_可视化沙盒/tests/test_settings.py",
+      "size": 2969,
+      "sha256": "f0dee729e10e61bc53782af27797214983ea66ae6babc8b08a0d986ce72a8613",
+      "source_identical": true
+    },
+    {
+      "path": "02_可视化沙盒/tests/visual-context.cjs",
+      "size": 2814,
+      "sha256": "65d1c6ddcfd156c13612e921293bd47db6d81cd668933697c2581b2945ee2f72",
+      "source_identical": true
+    },
+    {
+      "path": "02_可视化沙盒/疏散沙盒-单文件版.html",
+      "size": 16751781,
+      "sha256": "6f500b957b0c3b4aa6adf1464d5ca704a68f7d1db599e84dbc0690f465542a8e",
+      "source_identical": true
+    },
+    {
+      "path": "ASSETS.md",
+      "size": 1669,
+      "sha256": "5d536c520f75d0314fa25448c20b8b16847e6b205f750289f490afb888e828bd",
+      "source_identical": true
+    },
+    {
+      "path": "AUDIT.md",
+      "size": 4446,
+      "sha256": "98cb9977ef60e5739447b15e8730d9d734810471c28f3d39fd9f00fab9f06e34",
+      "source_identical": true
+    },
+    {
+      "path": "CHANGELOG.md",
+      "size": 5094,
+      "sha256": "2836055e4494ef17cbd648d40cfb70bf1a44822f6654c7850817e3b2584d293f",
+      "source_identical": true
+    },
+    {
+      "path": "conftest.py",
+      "size": 280,
+      "sha256": "0a4944bab75a9199ecd6b775bbf816304bf234b72bed2758469119b9891cf1c1",
+      "source_identical": false
+    },
+    {
+      "path": "EVENT_PROTOCOL.md",
+      "size": 2838,
+      "sha256": "d8f30691706fdfb7c1dfbfa07f96ad6bed7c9a7b37d0fa6920cbfea9ed2e6a4b",
+      "source_identical": true
+    },
+    {
+      "path": "evidence/building-layout-tests.json",
+      "size": 486,
+      "sha256": "e0959d2b0d01bef4e82e3b203228f6b5b7acb3e278172602bf918d2e3de54a3e",
+      "source_identical": true
+    },
+    {
+      "path": "evidence/deepseek-run-audit-2026-10-12.json",
+      "size": 6010,
+      "sha256": "de41f7be206bde7461c61d0098d40ec4b020b4a705864cce39b3dde30a4b506c",
+      "source_identical": true
+    },
+    {
+      "path": "evidence/DEEPSEEK_RUN_AUDIT_2026-10-12.md",
+      "size": 4000,
+      "sha256": "f1aef9931248cfafd4586932eaee3e6f0a32cfdeb411cd0c93cbf5ef714d463a",
+      "source_identical": true
+    },
+    {
+      "path": "evidence/effects-browser-tests.json",
+      "size": 657,
+      "sha256": "18adc5bd47da519abfd4171337eb1bb00086aafd109c3f92ad785d657ef0cff8",
+      "source_identical": true
+    },
+    {
+      "path": "evidence/example-provenance.json",
+      "size": 437,
+      "sha256": "8c58264e1fc856fe3ad064c07679b401d54646088810c5cdfc6d4d0ba0f8d262",
+      "source_identical": true
+    },
+    {
+      "path": "evidence/final-core-tests.txt",
+      "size": 1206,
+      "sha256": "e4b89b420c9630bd0002519f54d8d720278e82e8b18c4cc72c58e45abfb77839",
+      "source_identical": true
+    },
+    {
+      "path": "evidence/final-mechanism-audit.json",
+      "size": 5402,
+      "sha256": "e70926206e26a1be22c086d91bd98e9d954bc062a7c5e32728c78b82e5d740a4",
+      "source_identical": true
+    },
+    {
+      "path": "evidence/final-service-tests.txt",
+      "size": 101,
+      "sha256": "ed97a6241636ca65a593de466d5537ad6ccd65fe7ad96f56bf6fb91c7e1d43e0",
+      "source_identical": true
+    },
+    {
+      "path": "evidence/github-browser-verification.json",
+      "size": 712,
+      "sha256": "98a769103a60a4394a6cfed1fafe4f3e2a4565db74111a345f2de8e03ac018e2",
+      "source_identical": false
+    },
+    {
+      "path": "evidence/github-extracted-verification.json",
+      "size": 23413,
+      "sha256": "4321a78af1c1bf82228a8e28ca2697ff2cc7b7dc78afa0dc370f0aae89e48609",
+      "source_identical": false
+    },
+    {
+      "path": "evidence/github-python-tests.txt",
+      "size": 1302,
+      "sha256": "de01310c88229f0dd3f1de020a7af091b9ef306a578464a1f3ed481b9bb5d6dd",
+      "source_identical": false
+    },
+    {
+      "path": "evidence/museum-effects-initial.png",
+      "size": 143267,
+      "sha256": "9138f1a5b4c49d16d945eed7e6f387f5766ed51dfdb5bae61383226b6ff3b95f",
+      "source_identical": true
+    },
+    {
+      "path": "evidence/museum-effects-later.png",
+      "size": 186992,
+      "sha256": "5c7d0662277f5f4347b46f976e619684b61e90fe46e2751fe6f5adf7588c58b6",
+      "source_identical": true
+    },
+    {
+      "path": "evidence/museum-effects-research.png",
+      "size": 189995,
+      "sha256": "1ef1d3cb41445c4ab7befb7e279b5ce21a5c3f2eefdba33c626c1dc34c698b09",
+      "source_identical": true
+    },
+    {
+      "path": "evidence/museum-exhibit-card.png",
+      "size": 402717,
+      "sha256": "dbe54207ad5946bc33508fd00c7b7fd93e3dfcf74cf60ac430486e8399fe1294",
+      "source_identical": true
+    },
+    {
+      "path": "evidence/museum-smoke-evolution.webm",
+      "size": 1236199,
+      "sha256": "8d2de2244d0e1c6e635ceeb4851ff96eca6d7f82be72922720a57d8a0c90a2c0",
+      "source_identical": true
+    },
+    {
+      "path": "evidence/narrative-tests.json",
+      "size": 628,
+      "sha256": "ad49dd241a06638413d7e55ff97f6f7489236360a5f6c07bfcc3245fb1080b3d",
+      "source_identical": true
+    },
+    {
+      "path": "evidence/scene-effects-tests.json",
+      "size": 404,
+      "sha256": "6b8e6c30bdb3b1c8d808105bd6cfd531631bdbc21109e2bd150f14ad0ba373fb",
+      "source_identical": true
+    },
+    {
+      "path": "evidence/ui-settings.json",
+      "size": 3575,
+      "sha256": "16b8984cddfe13b3377483719108a4088bc42ec1de46c06aead7faef4211922c",
+      "source_identical": true
+    },
+    {
+      "path": "evidence/visual-context-tests.json",
+      "size": 420,
+      "sha256": "c24c918b0eb82cde087d1a882800858440c0baf9aa987fb7d315173cf678a841",
+      "source_identical": true
+    },
+    {
+      "path": "examples/local-smoke.json",
+      "size": 340,
+      "sha256": "4d3a179e3433e30aa59845ddbc0f9ba5f56208f9a7cef0e14866a78e39bc9f4d",
+      "source_identical": false
+    },
+    {
+      "path": "FINAL_MECHANISM_AUDIT.md",
+      "size": 3617,
+      "sha256": "9ecb5f4c104383e56408f144a48b40a53c01bca2e046c66bac470d88ec8850db",
+      "source_identical": true
+    },
+    {
+      "path": "GITHUB_UPLOAD.md",
+      "size": 2225,
+      "sha256": "3b61dbaca7880dcb1a7b65ff5a642683f6d12a395559462b4b4431110b94c410",
+      "source_identical": false
+    },
+    {
+      "path": "KNOWN_ISSUES.md",
+      "size": 1623,
+      "sha256": "30885307970c4e5dcdf4166ad2cb1e81e7ab2ef8a932036778610ceef52dd786",
+      "source_identical": false
+    },
+    {
+      "path": "LICENSE_STATUS.md",
+      "size": 757,
+      "sha256": "b4e2d6f60425f3cb89ca15acaf1727fdb31015ae454898d252faba56e9ed2404",
+      "source_identical": false
+    },
+    {
+      "path": "MECHANISM_AUDIT.md",
+      "size": 3690,
+      "sha256": "2c436327dd83d0c4e1f187e613a0250000b167552f92fa715a22ec799556c341",
+      "source_identical": true
+    },
+    {
+      "path": "PARAMETERS.md",
+      "size": 5526,
+      "sha256": "9274f15cc9f603f6040ff233faefca9cfd4c08c26f39d02af370d2aaac740bc2",
+      "source_identical": true
+    },
+    {
+      "path": "preview.png",
+      "size": 186992,
+      "sha256": "5c7d0662277f5f4347b46f976e619684b61e90fe46e2751fe6f5adf7588c58b6",
+      "source_identical": true
+    },
+    {
+      "path": "pytest.ini",
+      "size": 9,
+      "sha256": "8250d20f42b419af40706490ead78aabab9feba93eab09a3f626e3de5256e1f4",
+      "source_identical": false
+    },
+    {
+      "path": "README.md",
+      "size": 7532,
+      "sha256": "780c607a82c7551358961f75bc7824d93e5b2809df74327d1aa7b16a5bf66034",
+      "source_identical": false
+    },
+    {
+      "path": "RELEASE_NOTES.md",
+      "size": 1906,
+      "sha256": "d2a3ca71b0de19cabd426352eda9b284a3210d5c95342528226c435e2317bece",
+      "source_identical": false
+    },
+    {
+      "path": "requirements-dev.txt",
+      "size": 112,
+      "sha256": "595a9947270f2e3bdaf7b8562438e2748a47fa560675b638e107eb403a162315",
+      "source_identical": false
+    },
+    {
+      "path": "requirements-studio.txt",
+      "size": 110,
+      "sha256": "7f7d877be238653d6e54196bfba1ffd0e91e32de6e6e7a707faca79eb6df730f",
+      "source_identical": true
+    },
+    {
+      "path": "requirements-tools.txt",
+      "size": 111,
+      "sha256": "51dc0a0dd2769c08ba084db78526a78895e4089e2d6b10f3d4e7264842d9f3cb",
+      "source_identical": false
+    },
+    {
+      "path": "requirements.txt",
+      "size": 105,
+      "sha256": "69df174fac478515b5bddd0a49a593f4dbb977dd370f1dffac7a5bf76fe0e2b5",
+      "source_identical": false
+    },
+    {
+      "path": "scripts/verify_browser.cjs",
+      "size": 3866,
+      "sha256": "0917f5af3a7b61b5b7822f504711018ba96e06cac8312522f65f3e9c2d1823c5",
+      "source_identical": false
+    },
+    {
+      "path": "scripts/verify_package.py",
+      "size": 5710,
+      "sha256": "d80c7e888c731c1e82c9a8d472ed39617c59292d94ce909a35ca822e9650d00c",
+      "source_identical": false
+    },
+    {
+      "path": "start.py",
+      "size": 275,
+      "sha256": "38f711fc19f3b549a6d1839010dc2afc2730378da401491a4f63c7e0ae671641",
+      "source_identical": true
+    },
+    {
+      "path": "TEST_REPORT.md",
+      "size": 4577,
+      "sha256": "e4b59d1c5a4e97ce7305aa2634dbec10a97d52b9e871ab624098028fac6c06e3",
+      "source_identical": true
+    },
+    {
+      "path": "UI_EFFECTS_1_6.md",
+      "size": 3029,
+      "sha256": "f09c9540e0066de40104ae6430a02838292923cf640234070c8e52ad365d1402",
+      "source_identical": true
+    },
+    {
+      "path": "UI_MUSEUM_1_5.md",
+      "size": 2212,
+      "sha256": "c668ed7722453ead42bfae7206933808a59726f704c538716a88ef97807c3060",
+      "source_identical": true
+    },
+    {
+      "path": "UI_V1_4.md",
+      "size": 3437,
+      "sha256": "20eebea1e68145ce972051a191180d2d6fe357c32fd648f505e408a94f01dd42",
+      "source_identical": true
+    }
+  ]
+}

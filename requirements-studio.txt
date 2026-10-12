@@ -1,0 +1,5 @@
+# Python 3.12; lightweight runtime for the new studio and CLI
+numpy==1.26.4
+networkx==3.2.1
+requests==2.32.2
+

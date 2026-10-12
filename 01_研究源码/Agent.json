@@ -1,0 +1,121 @@
+{
+  "fileType": "Agent_Configuration",
+  "version": "3.0",
+  "notes": [
+    "v3.0：混合LLM—机制合成使用者观察契约。",
+    "1. role_description 改为条件性行为倾向，避免绝对化人格结论。",
+    "2. paper_label 明确三类均为行为原型而非人口统计类别。",
+    "3. panic_behavior 在正式LLM模式中控制可审计的出口忽略、人群跟随和动作扰动。",
+    "4. 三类均允许折返，差异来自记忆、感知、体力、恐慌与压力参数。"
+  ],
+  "agents": [
+    {
+      "id": "Cognitive_Template",
+      "type": "Cognitive",
+      "paper_label": "Trained/familiar deliberative archetype",
+      "desc": "接受过基础培训、对建筑较熟悉，倾向综合局部线索进行判断",
+      "role_description": "你是一名接受过基础消防安全培训、对该类公共建筑较熟悉的工作人员。疏散时你倾向于综合当前可见的烟雾、门、疏散标识与拥堵线索后再选择方向；当信息不足或压力升高时，你的判断也可能受到干扰。",
+      "params": {
+        "behavior": {
+          "can_backtrack": true
+        },
+        "memory": {
+          "memory_prompt_length": 3
+        },
+        "perception": {
+          "discovery_bias": {
+            "low_visibility": 0.6,
+            "high_visibility": 0.95
+          },
+          "noise": 0.03
+        },
+        "physical": {
+          "base_speed": 1.2,
+          "stamina": 100,
+          "stamina_decay_rate": 2.0
+        },
+        "psychology": {
+          "panic_threshold": 0.9,
+          "stress_resistance": 0.8,
+          "panic_behavior": {
+            "mistake_prob": 0.15,
+            "ignore_exit_prob": 0.10,
+            "follow_crowd_bias": 0.10
+          }
+        }
+      }
+    },
+    {
+      "id": "Perceptual_Template",
+      "type": "Perceptual",
+      "paper_label": "Unfamiliar cue-responsive archetype",
+      "desc": "对建筑不熟悉，倾向依赖当前可见的显著空间线索",
+      "role_description": "你是一名对建筑布局不熟悉的普通参观者。疏散时你倾向于依据当前可见的照明、开敞感、门、声音和局部标识选择方向；随着烟雾和紧张程度增加，显著但不一定安全的空间线索可能对你产生更大影响。",
+      "params": {
+        "behavior": {
+          "can_backtrack": true
+        },
+        "memory": {
+          "memory_prompt_length": 2
+        },
+        "perception": {
+          "discovery_bias": {
+            "low_visibility": 0.2,
+            "high_visibility": 0.7
+          },
+          "noise": 0.05
+        },
+        "physical": {
+          "base_speed": 1.3,
+          "stamina": 90,
+          "stamina_decay_rate": 3.5
+        },
+        "psychology": {
+          "panic_threshold": 0.75,
+          "stress_resistance": 0.4,
+          "panic_behavior": {
+            "mistake_prob": 0.40,
+            "ignore_exit_prob": 0.30,
+            "follow_crowd_bias": 0.35
+          }
+        }
+      }
+    },
+    {
+      "id": "Follower_Template",
+      "type": "Follower",
+      "paper_label": "Unfamiliar social-following archetype",
+      "desc": "对建筑不熟悉，压力升高时更倾向参考附近人群流向",
+      "role_description": "你是一名对建筑布局不熟悉、对文字标识理解有限的参观者。压力升高时你更倾向于参考附近可见的人群流向；当没有明确人群或出口线索时，你可能犹豫、尝试其他方向或折返。",
+      "params": {
+        "behavior": {
+          "can_backtrack": true
+        },
+        "memory": {
+          "memory_prompt_length": 1
+        },
+        "perception": {
+          "discovery_bias": {
+            "low_visibility": 0.05,
+            "high_visibility": 0.3
+          },
+          "noise": 0.1
+        },
+        "physical": {
+          "base_speed": 1.4,
+          "stamina": 80,
+          "stamina_decay_rate": 5.0
+        },
+        "psychology": {
+          "panic_threshold": 0.65,
+          "stress_resistance": 0.1,
+          "panic_behavior": {
+            "mistake_prob": 0.75,
+            "ignore_exit_prob": 0.60,
+            "follow_crowd_bias": 0.80
+          }
+        }
+      }
+    }
+  ]
+}

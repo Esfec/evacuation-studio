@@ -1,0 +1,2 @@
+# Minimal Python 3.12 runtime for the pixel studio and shared simulation CLI.
+-r requirements-studio.txt

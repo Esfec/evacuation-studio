@@ -1,0 +1,165 @@
+{
+  "audited_runs": [
+    {
+      "run_id": "8e9ffccdf5e743aeafa7b3370546fc11",
+      "fire_origin": "N06",
+      "model": "deepseek-v4-flash",
+      "status": "completed",
+      "valid": true,
+      "quality": "degraded",
+      "frames": 18,
+      "completed_steps": 17,
+      "final_counts": {
+        "active": 0,
+        "escaped": 22,
+        "dead": 26,
+        "exhausted": 0
+      },
+      "llm_calls": 295,
+      "failed_llm_attempts": 17,
+      "invalid_target_attempts": 17,
+      "invalid_target_examples": [
+        {
+          "step": "0",
+          "agent_id": "F29",
+          "attempt": "1",
+          "response_text": "{\"target_id\": \"过厅\", \"brief_justification\": \"展室里人不多，也没有明显的人群流向可跟随；两侧房门虽可见，但不知道门后情况。过厅方向空气清晰，有较高天花板、多个门廊和局部应急照明，空间线索更明确，我打算先往那边走。\"}"
+        },
+        {
+          "step": "0",
+          "agent_id": "F29",
+          "attempt": "2",
+          "response_text": "{\"target_id\": \"过厅\", \"brief_justification\": \"展室里人不多，两侧虽有房门但看不清门外情况；过厅方向空气清晰、有局部应急照明，且是唯一可感知的可通行方向，我打算先往那边走。\"}"
+        },
+        {
+          "step": "0",
+          "agent_id": "F29",
+          "attempt": "3",
+          "response_text": "{\"target_id\": \"过厅\", \"brief_justification\": \"展室内人不多，没有明显人群流向可跟随；两侧虽有房门但看不清门外情况。过厅方向空气清晰，有较高天花板、多个门廊和局部应急照明，空间更开阔，我打算先往那边走。\"}"
+        },
+        {
+          "step": "0",
+          "agent_id": "F32",
+          "attempt": "1",
+          "response_text": "{\"target_id\": \"过厅\", \"brief_justification\": \"展室里人不多，没有明显人群可跟随；两侧虽有房门但看不清门外情况。过厅空气清晰、有局部应急照明和多个门廊，是唯一可感知的可通行方向，我打算先往那里走。\"}"
+        }
+      ],
+      "attempt_distribution": {
+        "1": 282,
+        "2": 8,
+        "3": 5
+      },
+      "median_latency_ms": 1225.0,
+      "max_latency_ms": 1948.0,
+      "total_tokens": 193724,
+      "fallback_count": 4,
+      "action_counts": {
+        "INITIAL": 48,
+        "EDGE_QUEUE": 27,
+        "MOVED": 360,
+        "INACTIVE_ESCAPED": 232,
+        "STAMINA_WAIT": 30,
+        "DIED": 26,
+        "NO_DECISION_OPTIONS": 1,
+        "INACTIVE_DEAD": 140
+      },
+      "mode_counts": {
+        "": 477,
+        "LLM_API": 278,
+        "Rule_Fallback": 4,
+        "Panic_Crowd_Override": 69,
+        "Panic_Error_Override": 36
+      },
+      "max_consecutive_edge_queue": 2,
+      "agents_with_2plus_queue": [
+        "F34",
+        "F35",
+        "F40",
+        "P23"
+      ],
+      "invariant_problems": [],
+      "warnings": []
+    },
+    {
+      "run_id": "08a7a66b1b794fffb19bfdfb538f181f",
+      "fire_origin": "N01",
+      "model": "deepseek-v4-flash",
+      "status": "completed",
+      "valid": true,
+      "quality": "degraded",
+      "frames": 18,
+      "completed_steps": 17,
+      "final_counts": {
+        "active": 0,
+        "escaped": 28,
+        "dead": 20,
+        "exhausted": 0
+      },
+      "llm_calls": 280,
+      "failed_llm_attempts": 12,
+      "invalid_target_attempts": 12,
+      "invalid_target_examples": [
+        {
+          "step": "0",
+          "agent_id": "F30",
+          "attempt": "1",
+          "response_text": "{\"target_id\": \"印象展区\", \"brief_justification\": \"教室里人不多，只有一扇可见房门，我有点紧张但没看到明确人群流向。印象展区方向空气清晰，虽然照明弱、门多，但这是唯一可通行方向，先朝那边走。\"}"
+        },
+        {
+          "step": "0",
+          "agent_id": "F31",
+          "attempt": "1",
+          "response_text": "{\"target_id\": \"中走廊\", \"brief_justification\": \"过厅里人不多，没有明显的人群流向可跟随，我有些紧张。看到沿墙有相邻门洞通往中走廊，空气也清晰，就决定先朝那个方向走。\"}"
+        },
+        {
+          "step": "0",
+          "agent_id": "F35",
+          "attempt": "1",
+          "response_text": "{\"target_id\": \"展室\", \"brief_justification\": \"过厅里人不多，没有明显人群流向可跟随。展室方向空气清晰，有室内照明和两侧房门，是唯一可通行方向，我决定往那边走。\"}"
+        },
+        {
+          "step": "0",
+          "agent_id": "F36",
+          "attempt": "1",
+          "response_text": "{\"target_id\": \"印象展区\", \"brief_justification\": \"中走廊几乎没人，没有人群流向可参考，我有些紧张。这里空气清晰，但印象展区照明较弱、多扇门影响远距离识别，我犹豫是否该往那边走。\"}"
+        }
+      ],
+      "attempt_distribution": {
+        "1": 270,
+        "2": 8,
+        "3": 2
+      },
+      "median_latency_ms": 1185.0,
+      "max_latency_ms": 1853.0,
+      "total_tokens": 183528,
+      "fallback_count": 2,
+      "action_counts": {
+        "INITIAL": 48,
+        "EDGE_QUEUE": 48,
+        "MOVED": 320,
+        "INACTIVE_ESCAPED": 321,
+        "STAMINA_WAIT": 37,
+        "DIED": 20,
+        "INACTIVE_DEAD": 70
+      },
+      "mode_counts": {
+        "": 496,
+        "LLM_API": 268,
+        "Rule_Fallback": 2,
+        "Panic_Error_Override": 42,
+        "Panic_Crowd_Override": 56
+      },
+      "max_consecutive_edge_queue": 2,
+      "agents_with_2plus_queue": [
+        "F34",
+        "F40",
+        "P13",
+        "P17",
+        "P19",
+        "P23"
+      ],
+      "invariant_problems": [],
+      "warnings": []
+    }
+  ]
+}

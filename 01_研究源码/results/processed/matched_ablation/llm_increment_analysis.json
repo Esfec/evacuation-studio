@@ -1,0 +1,107 @@
+{
+  "estimand": "(D2-D0)_LLM minus (D2-D0)_LLM-off under C1, paired by seed",
+  "metrics": {
+    "escape_rate": {
+      "llm_d2_minus_d0": {
+        "mean": 0.021859999999999997,
+        "ci_low": 0.0020799999999999903,
+        "ci_high": 0.041645
+      },
+      "llm_off_d2_minus_d0": {
+        "mean": 0.11354166666666668,
+        "ci_low": 0.07604166666666666,
+        "ci_high": 0.15312499999999998
+      },
+      "difference_of_effects": {
+        "mean": -0.09168166666666666,
+        "ci_low": -0.13542837500000002,
+        "ci_high": -0.04898666666666666
+      }
+    },
+    "rmet30": {
+      "llm_d2_minus_d0": {
+        "mean": -0.6447916666666664,
+        "ci_low": -1.0500260416666662,
+        "ci_high": -0.24166666666666714
+      },
+      "llm_off_d2_minus_d0": {
+        "mean": -2.812499999999999,
+        "ci_low": -3.7031510416666658,
+        "ci_high": -1.99375
+      },
+      "difference_of_effects": {
+        "mean": 2.1677083333333327,
+        "ci_low": 1.1989322916666656,
+        "ci_high": 3.1708593749999996
+      }
+    },
+    "n04_failures": {
+      "llm_d2_minus_d0": {
+        "mean": -4.05,
+        "ci_low": -5.4,
+        "ci_high": -2.65
+      },
+      "llm_off_d2_minus_d0": {
+        "mean": -5.65,
+        "ci_low": -6.95,
+        "ci_high": -4.35
+      },
+      "difference_of_effects": {
+        "mean": 1.6,
+        "ci_low": -0.05,
+        "ci_high": 3.25
+      }
+    },
+    "receiving_person_steps": {
+      "llm_d2_minus_d0": {
+        "mean": 34.45,
+        "ci_low": 16.85,
+        "ci_high": 52.55
+      },
+      "llm_off_d2_minus_d0": {
+        "mean": 41.45,
+        "ci_low": 25.6,
+        "ci_high": 58.5
+      },
+      "difference_of_effects": {
+        "mean": -7.0,
+        "ci_low": -34.45125,
+        "ci_high": 17.45
+      }
+    },
+    "receiving_failures": {
+      "llm_d2_minus_d0": {
+        "mean": 4.9,
+        "ci_low": 3.1,
+        "ci_high": 6.55
+      },
+      "llm_off_d2_minus_d0": {
+        "mean": 3.65,
+        "ci_low": 1.75,
+        "ci_high": 5.45
+      },
+      "difference_of_effects": {
+        "mean": 1.25,
+        "ci_low": -1.9,
+        "ci_high": 4.25
+      }
+    },
+    "total_failures": {
+      "llm_d2_minus_d0": {
+        "mean": -1.05,
+        "ci_low": -2.0,
+        "ci_high": -0.1
+      },
+      "llm_off_d2_minus_d0": {
+        "mean": -5.45,
+        "ci_low": -7.4,
+        "ci_high": -3.7
+      },
+      "difference_of_effects": {
+        "mean": 4.4,
+        "ci_low": 2.35,
+        "ci_high": 6.55
+      }
+    }
+  }
+}

@@ -1,2 +1,3 @@
-# Auto detect text files and perform LF normalization
-* text=auto
+# Preserve the audited bytes and research provenance hashes across Git checkouts.
+# Existing Python / browser files can contain LF or CRLF; both runtimes accept them.
+* -text

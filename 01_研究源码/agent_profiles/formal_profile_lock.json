@@ -1,0 +1,10 @@
+{
+  "selected_profile": "P0",
+  "calibration_status": "COMPLETE",
+  "selection_rule": "P0 retained after both implementation profiles passed the small calibration audit, before the formal design comparison. This is implementation selection, not a documented preregistered tie-break rule or empirical behavioural calibration.",
+  "profile_path": "agent_profiles/Agent_P0_current.json",
+  "sha256": "c48533b34eb9e37d1ae28ee4b3baa636e98f99be956adc657d0c148b08cc43b7",
+  "calibration_decision": "results/processed/follower_calibration_v1/calibration_decision.json",
+  "formal_seeds": [101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, 117, 118, 119, 120],
+  "claim_limit": "Operationally calibrated synthetic archetype; not an empirically validated population model."
+}

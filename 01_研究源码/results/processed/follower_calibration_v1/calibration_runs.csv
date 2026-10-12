@@ -1,0 +1,13 @@
+profile,condition_id,seed,run_id,schema_version,quality_pass,api_success_ratio,fallback_ratio,run_dir
+P0,C0,41,20260816_172718_a18a88f8,4.1,True,1.0,0.012048,results\follower_calibration_v1\P0\20260816_172718_a18a88f8
+P0,C0,42,20260816_165946_cc868176,4.1,True,1.0,0.019763,results\llm_audit_pair_v41_seed42\20260816_165946_cc868176
+P0,C0,43,20260816_172901_8c8c74ce,4.1,True,1.0,0.009404,results\follower_calibration_v1\P0\20260816_172901_8c8c74ce
+P0,C1,41,20260816_173104_c63c80ab,4.1,True,1.0,0.010676,results\follower_calibration_v1\P0\20260816_173104_c63c80ab
+P0,C1,42,20260816_170128_de387751,4.1,True,1.0,0.016077,results\llm_audit_pair_v41_seed42\20260816_170128_de387751
+P0,C1,43,20260816_173256_0af18031,4.1,True,1.0,0.013746,results\follower_calibration_v1\P0\20260816_173256_0af18031
+P1,C0,41,20260816_173446_13e3a2b0,4.1,True,1.0,0.017606,results\follower_calibration_v1\P1\20260816_173446_13e3a2b0
+P1,C0,42,20260816_173634_b7851f70,4.1,True,1.0,0.018182,results\follower_calibration_v1\P1\20260816_173634_b7851f70
+P1,C0,43,20260816_173825_225dce31,4.1,True,1.0,0.010417,results\follower_calibration_v1\P1\20260816_173825_225dce31
+P1,C1,41,20260816_174023_0ff22d1c,4.1,True,1.0,0.028302,results\follower_calibration_v1\P1\20260816_174023_0ff22d1c
+P1,C1,42,20260816_174227_8cd5d2bc,4.1,True,1.0,0.021148,results\follower_calibration_v1\P1\20260816_174227_8cd5d2bc
+P1,C1,43,20260816_174447_8ab70b4a,4.1,True,1.0,0.016892,results\follower_calibration_v1\P1\20260816_174447_8ab70b4a

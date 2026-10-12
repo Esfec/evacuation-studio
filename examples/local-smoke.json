@@ -1,0 +1,20 @@
+{
+  "policy": "Local_Rule",
+  "design": "D0",
+  "condition": "C0",
+  "seed": 42,
+  "steps": 10,
+  "cognitive": 2,
+  "perceptual": 1,
+  "follower": 1,
+  "fire_origin": "N06",
+  "fire_rate": 0.08,
+  "smoke_rate": 0.12,
+  "step_seconds": 5,
+  "initial_positions": {
+    "C01": "N01",
+    "C02": "N03",
+    "P03": "N04",
+    "F04": "N17"
+  }
+}

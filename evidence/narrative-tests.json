@@ -1,0 +1,16 @@
+{
+  "passed": 11,
+  "checks": [
+    "Queue does not claim arrival",
+    "Memory is distinguished from direct sight",
+    "Tactile search and low stamina use recorded facts",
+    "Pending request hides previous decision",
+    "Returned decision is not presented as settled movement",
+    "Actual model summary retained verbatim",
+    "Dead and escaped agents do not keep announcing decisions",
+    "Legacy missing context is not invented",
+    "Queued return is an intention, completed return is an outcome",
+    "Closed observation is never described as usable",
+    "Initial state does not imply an observation or action"
+  ]
+}

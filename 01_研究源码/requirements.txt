@@ -1,0 +1,9 @@
+# Tested release environment: Python 3.12.3
+streamlit==1.32.0
+pandas==2.3.0
+# Streamlit's open-ended Arrow dependency can pull a NumPy-2-only build.
+pyarrow==14.0.2
+numpy==1.26.4
+networkx==3.2.1
+requests==2.32.2
+pytest==7.4.4

@@ -1,0 +1,2 @@
+# Full research runtime plus pytest, used by the existing regression suite.
+-r 01_研究源码/requirements.txt
