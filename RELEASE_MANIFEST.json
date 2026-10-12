@@ -4,7 +4,7 @@
   "simulation_implementation": "studio-1.5-llm-protocol",
   "frontend": "museum-ui-1.9",
   "source_identical_files": 135,
-  "text_files_scanned": 164,
+  "text_files_scanned": 166,
   "credential_findings": 0,
   "excluded": [
     "local raw runs",
@@ -37,6 +37,12 @@
       "path": ".gitignore",
       "size": 433,
       "sha256": "89060eca4bd277947672475ba489ca6ee7901afa729f7563a37392d55cb700e5",
+      "source_identical": false
+    },
+    {
+      "path": ".nojekyll",
+      "size": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
       "source_identical": false
     },
     {
@@ -707,8 +713,8 @@
     },
     {
       "path": "02_可视化沙盒/talk_data.js",
-      "size": 103,
-      "sha256": "9ae6a7c4a93ee0c91ae77498b48fe2103dbef72d37a78aabc724d7bf754e51fb",
+      "size": 5453124,
+      "sha256": "6434b8316458d95d0989875423e5ceb4abbfd43a844532211ad881cd2a2c0709",
       "source_identical": false
     },
     {
@@ -779,8 +785,8 @@
     },
     {
       "path": "02_可视化沙盒/疏散沙盒-单文件版.html",
-      "size": 16796608,
-      "sha256": "76d6e94b36d21b109cba3225b50538f355bd4201eae962d4d053ff42b801c145",
+      "size": 22249628,
+      "sha256": "4af046a99110b223a35b763d48728bd0aeaf57a526b62eb1980bb66e2a434655",
       "source_identical": false
     },
     {
@@ -952,9 +958,15 @@
       "source_identical": false
     },
     {
+      "path": "index.html",
+      "size": 1322,
+      "sha256": "9d23ad030db92ef8aa5f2b9795ad1458e4543abceafbfefe3e8ef22a99c418d9",
+      "source_identical": false
+    },
+    {
       "path": "KNOWN_ISSUES.md",
-      "size": 2195,
-      "sha256": "6f94f5b8bbf5da51f83ddc4333e74f5dac8a12542471d94b5efbcd81bb7f1eb9",
+      "size": 2507,
+      "sha256": "81728eb578bee3c96f9ab49c858b2c0078705f73ead8feec8a026793e20b26b1",
       "source_identical": false
     },
     {
@@ -968,6 +980,12 @@
       "size": 3690,
       "sha256": "2c436327dd83d0c4e1f187e613a0250000b167552f92fa715a22ec799556c341",
       "source_identical": true
+    },
+    {
+      "path": "media/demo-split.gif",
+      "size": 2071680,
+      "sha256": "838e22cfa82572f6a6f9201311dd6c138b42a8413ea976ac41278834d48560d1",
+      "source_identical": false
     },
     {
       "path": "PARAMETERS.md",
@@ -989,8 +1007,8 @@
     },
     {
       "path": "README.md",
-      "size": 9065,
-      "sha256": "143e8f803f8da7e76f232449a8ed77c9aa75cd04f891bd5e7b7e47cedc7ec3f7",
+      "size": 10151,
+      "sha256": "3f734d28fdd11b9a7b583af83ce5a6e24d8b64df8f573df8f02494bab2a357d7",
       "source_identical": false
     },
     {
@@ -1099,6 +1117,9 @@
     "02_可视化沙盒/talk_data.js",
     "02_可视化沙盒/record_talk_runs.py",
     "01_研究源码/tests/test_llm_target_protocol.py",
-    "UI_TOUR_1_7.md"
+    "UI_TOUR_1_7.md",
+    "index.html",
+    ".nojekyll",
+    "media/demo-split.gif"
   ]
 }

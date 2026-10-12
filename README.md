@@ -2,9 +2,19 @@
 
 一个将 LLM Agent、18 节点博物馆拓扑疏散仿真与原创 Cozy Pixel Art 观察界面结合的研究原型。支持方案比选、局部观察、空间记忆、容量排队、逐步记录与回放。
 
-本包对应 **2026-10-13 的当前代码**：仿真与事件服务标识 `studio-1.5-llm-protocol`，前端 `museum-ui-1.9`。DeepSeek 目标字段协议已修复，但新协议尚未用真实 API 重跑，见 [KNOWN_ISSUES.md](KNOWN_ISSUES.md)。变更见 [CHANGELOG.md](CHANGELOG.md)，导览 / 分屏 / 画面说明见 [UI_TOUR_1_7.md](UI_TOUR_1_7.md)。
+本包对应 **2026-10-13 的当前代码**：仿真与事件服务标识 `studio-1.5-llm-protocol`，前端 `museum-ui-1.9`。DeepSeek 目标字段协议已修复，并已用 DeepSeek 实际录制 1 对汇报运行（D0 / D2 · C1 · seed 42，647 次调用无无效输出、无规则兜底）；正式实验矩阵尚未在新协议下重跑，见 [KNOWN_ISSUES.md](KNOWN_ISSUES.md)。变更见 [CHANGELOG.md](CHANGELOG.md)，导览 / 分屏 / 画面说明见 [UI_TOUR_1_7.md](UI_TOUR_1_7.md)。
+
+**▶ 在线演示：<https://esfec.github.io/evacuation-studio/>**（浏览器直接打开，含 DeepSeek 汇报录制、★ 导览与 ▥ 分屏；仅回放，不调用 API，首次加载约 21 MB）
+
+![D0 / D2 同步分屏回放](media/demo-split.gif)
+
+*同一 seed、同一初始位置下 D0 原始方案（左）与 D2 新增 N06↔N08 连廊（右）的 DeepSeek 录制同步回放：红牌为各房间遇难人数，底部列出遇难地点变化。单次运行，不代表统计结论。*
 
 ![博物馆界面](preview.png)
+
+### 开启在线演示（仓库维护者）
+
+仓库 **Settings → Pages → Build and deployment**：Source 选 *Deploy from a branch*，Branch 选 `main` / `(root)`，保存。约 1–2 分钟后根目录 `index.html` 会自动跳转到 `02_可视化沙盒/疏散沙盒-单文件版.html`。根目录的 `.nojekyll` 让 Pages 原样发布文件。更新录制后运行 `python 02_可视化沙盒/bundle.py` 并推送，在线演示随之更新。
 
 ## 快速启动
 
