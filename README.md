@@ -145,8 +145,3 @@ node tests/effects-browser.cjs
 
 内嵌演示保留 6 组实际执行的本地规则录制和 24 组交接包历史录制，页面分别标注。旧录制、旧研究图表与本版本不能混为同一实验。真实 API 即使同 seed 也不保证再次生成同样轨迹，复现应保留配置、初始状态、代码哈希和原始回放。
 
-## 上传 GitHub
-
-完整流程见 [GITHUB_UPLOAD.md](GITHUB_UPLOAD.md)。上传的是本目录里的文件与文件夹，不是 `node_modules`、虚拟环境或原始运行目录。`.gitignore` 已覆盖这些产物。
-
-源码许可证尚未由作者指定，因此没有擅自添加 MIT/Apache 授权；字体适用附带的 SIL OFL 1.1。见 [LICENSE_STATUS.md](LICENSE_STATUS.md)。
