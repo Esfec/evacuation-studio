@@ -92,7 +92,7 @@ python 02_可视化沙盒/run_cli.py --policy LLM_Agent --provider DeepSeek --mo
 
 LLM 输出协议（studio-1.5）：`target_id` 只在本步可选方向内做确定性匹配（精确 ID、大小写、文本中唯一 ID、唯一房间名），歧义一律视为无效；无效输出重试时附上一条回复与协议纠正。每次匹配方式和纠错重试写入 `llm_call_log`，回放附 `llm_protocol` 汇总；导览结算显示 LLM 采纳、恐慌改写与规则兜底的构成。
 
-录制汇报用的配对运行（默认 D0 / D2、C1、seed 42）：
+录制汇报用的方案 × 工况矩阵（默认 D0 / D1 / D2 × C0 / C1，seed 42；talk_data.js 中已有的同配置录制会保留，只补录缺少的格子，完成后自动重建离线页面）：
 
 ```powershell
 $env:DEEPSEEK_API_KEY="YOUR_API_KEY"
@@ -100,7 +100,7 @@ $env:DEEPSEEK_API_KEY="YOUR_API_KEY"
 .\.venv\Scripts\python.exe 02_可视化沙盒\record_talk_runs.py             # 真实调用
 ```
 
-结果写入 `02_可视化沙盒/talk_data.js`，页面录制列表顶部显示为“汇报录制”；运行 `python 02_可视化沙盒/bundle.py` 可打入离线页面。
+结果写入 `02_可视化沙盒/talk_data.js`，页面录制列表顶部显示为“汇报录制”。`--dry-run` 只写 `talk_data_dryrun.js`，不会覆盖真实录制；`--rerun` 全部重录。
 
 `.env.example` 仅列出环境变量名称；程序不会自动加载 `.env`。缺密钥的 LLM 请求会被拒绝。模型名称以账号实际权限为准，以上保留工作版本配置，不承诺服务商当前可用性。
 

@@ -34,3 +34,6 @@ evidence/generated/
 .vscode/
 .DS_Store
 Thumbs.db
+
+# Local talk materials (slides, recordings)
+Claude outputs/
