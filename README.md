@@ -1,14 +1,94 @@
 # 栖木 · 建筑疏散观察室 / Evacuation Studio
 
-一个将 LLM Agent、18 节点博物馆拓扑疏散仿真与原创 Cozy Pixel Art 观察界面结合的研究原型。支持方案比选、局部观察、空间记忆、容量排队、逐步记录与回放。
+**把建筑方案、Agent 决策与疏散过程放在同一个可观察、可回放的研究环境中。**
 
-本包对应 **2026-10-13 的当前代码**：仿真与事件服务标识 `studio-1.5-llm-protocol`，前端 `museum-ui-1.9`。DeepSeek 目标字段协议已修复，并已用 DeepSeek 实际录制 1 对汇报运行（D0 / D2 · C1 · seed 42，647 次调用无无效输出、无规则兜底）；正式实验矩阵尚未在新协议下重跑，见 [KNOWN_ISSUES.md](KNOWN_ISSUES.md)。变更见 [CHANGELOG.md](CHANGELOG.md)，导览 / 分屏 / 画面说明见 [UI_TOUR_1_7.md](UI_TOUR_1_7.md)。
+Evacuation Studio 是面向建筑设计早期方案比选的研究原型：以 18 节点博物馆为场景，将 LLM Agent 的局部观察、空间记忆与行动选择接入具有火烟、通道容量和排队约束的仿真，再用原创 Cozy Pixel Art 界面展示全过程。
 
-**▶ 在线演示：<https://esfec.github.io/evacuation-studio/>**（浏览器直接打开，含 DeepSeek 汇报录制、★ 导览与 ▥ 分屏；仅回放，不调用 API，首次加载约 21 MB）
+**[▶ 在线演示](https://esfec.github.io/evacuation-studio/)** · [快速启动](#快速启动) · [方案与工况](#方案与工况) · [现有录制结果](#现有录制结果) · [数据与复现](#数据与复现)
+
+在线页面无需密钥，只播放已有记录，不调用 API。内嵌文件约 31.4 MiB，首次打开需等待加载；本地服务支持新建仿真与真实 API 调用。
+
+当前仿真与事件服务标识为 `studio-1.5-llm-protocol`，前端为 `museum-ui-1.9`。仓库已包含 **D0/D1/D2 × C0/C1 的 6 组真实 DeepSeek 汇报录制**：每组 seed 42，共 **1,815 次 API 请求，无无效输出、无规则兜底**。详情见 [已知问题](KNOWN_ISSUES.md) 与 [变更记录](CHANGELOG.md)。
 
 ![D0 / D2 同步分屏回放](media/demo-split.gif)
 
-*同一 seed、同一初始位置下 D0 原始方案（左）与 D2 新增 N06↔N08 连廊（右）的 DeepSeek 录制同步回放：红牌为各房间遇难人数，底部列出遇难地点变化。单次运行，不代表统计结论。*
+*同一 seed、同一初始位置下 D0 原始方案（左）与 D2 新增 N06↔N08 连廊（右）的 DeepSeek 录制同步回放：红牌为各房间遇难人数，底部列出遇难地点变化。*
+
+## 方案与工况
+
+**现有设置是 3 个设计方案 × 2 个火灾工况，共 6 个组合。**
+
+| 类别 | 编号 | 改变什么 | 建筑设计含义 |
+|---|---|---|---|
+| 设计 | D0 | 原始拓扑与容量 | 比选基准 |
+| 设计 | D1 | N06 印象展区 ↔ N10 紧急通道，每方向容量由 4 提高到 8 人/步 | 提高该连接的通行能力 |
+| 设计 | D2 | 在 D0 上增加 N06 印象展区 ↔ N08 临时展厅双向连接，容量为每方向 4 人/步 | 检验新增连接的影响 |
+| 工况 | C0 | 动态火灾，初始路径均可用 | 观察火情发展下的基本疏散过程 |
+| 工况 | C1 | 动态火灾，N10 从初始时刻起关闭 | 检验关键通道失效时的疏散表现 |
+
+![设计方案与火灾工况示意](media/readme/scenarios.png)
+
+*箭头表示可通行方向；淡绿色虚线是 D2 新增连接，淡粉色线是 D1 扩容位置。N11 与 N18 是出口，N01 是起火点。*
+
+**读图要点：C1 从初始时刻关闭 N10，因此 D1 的 N06↔N10 扩容仅在 C0 中生效。D2 会同时改变 Agent 的可选路线和火烟传播所依赖的图结构。**
+
+完整节点与参数见 [PARAMETERS.md](PARAMETERS.md)，方案定义见 [scenarios.py](01_研究源码/scenarios.py)。
+
+## 现有录制结果
+
+### 录制条件与可比性
+
+以下图表使用仓库中的 [talk_data.js](02_可视化沙盒/talk_data.js)。六组均记录于 2026-10-13，标记为 `live_llm`、`completed`、`valid=true`、`quality=clean`。
+
+| 参数 | 这批录制的实际设置 |
+|---|---|
+| 模型 / 策略 | DeepSeek · `deepseek-v4-flash` / `LLM_Agent` |
+| 初始人群 | 48 人：Cognitive 10、Perceptual 15、Follower 23；为合成行为画像 |
+| 配对条件 | seed 42；已逐字段核对六组初始 Agent 快照完全一致，除设计/工况编号外配置一致 |
+| 火灾 | 起火点 N01；`fire_rate=0.1`；`smoke_rate=null`（未单独覆盖），`smoke_scale=0.9` |
+| 容量 / 时间 | 基础通道容量每方向 4 人/步；每步最多一跳；5 标称秒/步；最多 30 步 |
+| 调用设置 | `temperature=0.1`；`llm_concurrency=8` |
+| 调用质量 | 共 1,815 次请求且均成功；无效输出、纠错重试、名称规范化、规则兜底均为 0 |
+
+### 逃生人数与疏散进程
+
+![六组真实录制的最终结果与累计逃生曲线](media/readme/recorded-results.png)
+
+| 工况 | 方案 | 逃生 / 总人数 | 逃生率 | 遇难 | 逃生者中位步数 | 通道排队人步 | API 请求 |
+|---|---|---:|---:|---:|---:|---:|---:|
+| C0 | D0 原始 | 26 / 48 | 54.2% | 22 | 6 | 55 | 282 |
+| C0 | D1 扩容 | 29 / 48 | 60.4% | 19 | 6 | 49 | 275 |
+| C0 | D2 新连接 | 25 / 48 | 52.1% | 23 | 5 | 52 | 283 |
+| C1 | D0 原始 | 22 / 48 | 45.8% | 26 | 7 | 57 | 315 |
+| C1 | D1 扩容 | 22 / 48 | 45.8% | 26 | 8 | 69 | 328 |
+| C1 | D2 新连接 | 20 / 48 | 41.7% | 28 | 8.5 | 98 | 332 |
+
+这批录制中，D1/C0 的逃生人数最多；D2/C1 的通道排队人步最多。新增连接同时改变了路线选择、空间聚集和危险暴露过程。
+
+六组最终均无活动中或体力耗尽状态的 Agent，人数由逃生与遇难两类构成。运行分别在 17、18、18、17、16、15 步完成状态结算。
+
+### 等待与空间分布
+
+![六组录制的等待原因与遇难房间分布](media/readme/recorded-diagnostics.png)
+
+左图区分“通道容量排队”和“体力等待”，本批录制没有出现 `NODE_FULL` 房间满员等待。右图展示最终遇难位置的空间分布。
+
+### 历史实验：单独保留的证据
+
+仓库还保留了旧实现的研究材料：120 次有效 LLM 设计实验（每组合 20 个 seed）、480 次传统策略基线，以及 40 次匹配消融记录。历史实验在独立表格中呈现。
+
+历史 LLM 汇总表有 121 行，其中 1 行 `valid_run=False`；下表仅使用其余 120 行：
+
+| 历史工况 | D0 平均逃生率 | D1 平均逃生率 | D2 平均逃生率 | 每方案样本数 |
+|---|---:|---:|---:|---:|
+| C0 | 57.2% | 57.4% | 55.2% | 20 |
+| C1 | 45.4% | 45.2% | 47.6% | 20 |
+
+历史实验中，D1/C0 与 D0/C0 的平均逃生率接近；D2/C1 的平均逃生率高于 D0/C1。该结果为后续多种子配对实验提供参考。
+
+历史来源：[LLM 汇总 CSV](01_研究源码/results/processed/formal_design_p0_v1/paper_summary_v1.csv)、[分析报告](01_研究源码/results/processed/formal_design_p0_v1/formal_analysis_report.md)、[传统策略基线](01_研究源码/results/processed/formal_baselines_p0_v1/paper_summary_v1.csv)、[匹配消融](01_研究源码/results/processed/matched_ablation/)。
+
+## 查看界面与回放
 
 ![博物馆界面](preview.png)
 
@@ -57,7 +137,7 @@ macOS / Linux：
 ## 汇报与展示
 
 - **★ 导览**（右上角）：按当前录制自动生成 6 幕——开馆、起火、认得路的人、跟着人群走、门口的队伍、结算。→ / Enter / 空格 / 翻页笔 PageDown 下一幕，← / PageUp 上一幕，Esc 退出。每幕文字只取自录制字段，并标注来源。
-- **▥ 分屏对照**（左侧工具栏）：左右同步回放除设计外配置完全相同的两份录制（如 D0 / D2），高亮新增或加宽的连接，房间红牌显示遇难人数，底部面板列出遇难地点变化。单次录制差异不代表统计显著性。
+- **▥ 分屏对照**（左侧工具栏）：同步回放两份匹配录制（如 D0 / D2），高亮新增或加宽的连接，房间红牌显示遇难人数，底部面板列出遇难地点变化。本文六组已核对初始人群和共同配置。
 - **画面**：出口外集合点与计数、门口排队队列、移动脚印、随风险变暗的室内照明与发光出口标志、火情封闭房间压暗、含蓄的遇难标记（淡化身影与小白花）。均为记录的表现层，不改变仿真。
 
 离线单文件页面同样支持导览与分屏。
@@ -92,7 +172,7 @@ python 02_可视化沙盒/run_cli.py --policy LLM_Agent --provider DeepSeek --mo
 
 LLM 输出协议（studio-1.5）：`target_id` 只在本步可选方向内做确定性匹配（精确 ID、大小写、文本中唯一 ID、唯一房间名），歧义一律视为无效；无效输出重试时附上一条回复与协议纠正。每次匹配方式和纠错重试写入 `llm_call_log`，回放附 `llm_protocol` 汇总；导览结算显示 LLM 采纳、恐慌改写与规则兜底的构成。
 
-录制汇报用的方案 × 工况矩阵（默认 D0 / D1 / D2 × C0 / C1，seed 42；talk_data.js 中已有的同配置录制会保留，只补录缺少的格子，完成后自动重建离线页面）：
+以下命令用于重新录制汇报矩阵。默认 D0 / D1 / D2 × C0 / C1，seed 42，完成后自动重建离线页面：
 
 ```powershell
 $env:DEEPSEEK_API_KEY="YOUR_API_KEY"
@@ -100,11 +180,60 @@ $env:DEEPSEEK_API_KEY="YOUR_API_KEY"
 .\.venv\Scripts\python.exe 02_可视化沙盒\record_talk_runs.py             # 真实调用
 ```
 
-结果写入 `02_可视化沙盒/talk_data.js`，页面录制列表顶部显示为“汇报录制”。`--dry-run` 只写 `talk_data_dryrun.js`，不会覆盖真实录制；`--rerun` 全部重录。
+结果写入 `02_可视化沙盒/talk_data.js`，页面录制列表顶部显示为“汇报录制”。`--dry-run` 写入 `talk_data_dryrun.js`；`--rerun` 全部重录。脚本按设计、工况、seed、策略、模型及实现版本复用已有录制，只补充缺失组合。
 
-`.env.example` 仅列出环境变量名称；程序不会自动加载 `.env`。缺密钥的 LLM 请求会被拒绝。模型名称以账号实际权限为准，以上保留工作版本配置，不承诺服务商当前可用性。
+`.env.example` 列出环境变量名称；LLM 调用使用启动进程中的环境变量。模型名称按服务商账号中的可用模型填写。
 
-真实调用、规则策略、恐慌覆盖、规则兜底和录制回放均有记录标识。Agent 气泡中的“模型原始摘要”来自 LLM 的 `brief_justification`；“记录综合解说”由前端依据已记录状态生成，两者都不代表模型完整内部推理。
+### Agent 气泡是不是 LLM 的思考？
+
+真实调用、规则策略、恐慌覆盖、规则兜底和录制回放均有记录标识。气泡与详情面板应结合来源阅读：
+
+| 显示内容 | 来源 | 代表什么 |
+|---|---|---|
+| 模型原始摘要 | LLM 返回的 `brief_justification` | 该次模型给出的简短决策说明 |
+| 记录综合解说 | 前端综合已记录的观察、状态、环境、记忆与行动 | 便于展示的过程解说，不是新增一次 LLM 调用 |
+| 实际行动与状态 | 仿真执行后的快照和事件 | 是否走动、排队、等待、逃生或遇难 |
+
+LLM 目标、规则修正与最终行动分别保存，便于对照模型选择和仿真执行结果。
+
+## 数据与复现
+
+### 仓库中有哪些数据
+
+| 内容 | 位置 | 用途 |
+|---|---|---|
+| 当前真实 LLM 录制，6 组 | `02_可视化沙盒/talk_data.js` | 本文图表、导览、分屏及逐步观察的数据源 |
+| 本地规则录制，6 组 | `02_可视化沙盒/studio_data.js` | 无密钥演示与策略对照 |
+| 交接包历史录制，24 组 | `02_可视化沙盒/replay_data.js` | 旧版本回放，页面区分来源 |
+| 历史研究汇总与图表 | `01_研究源码/results/processed/`、`01_研究源码/figures/` | 旧实验再分析与研究追溯 |
+| 本文汇总与来源校验 | [recorded-summary.csv](media/readme/recorded-summary.csv)、[provenance.json](media/readme/provenance.json) | 六组完整 run ID、指标、源文件 SHA-256 和配对核对结果 |
+
+完整运行目录默认保留在本地并被 Git 忽略。每次运行的 API 提示、响应和逐步记录保存在对应原始日志中。
+
+### 不调用 API，重新生成本文图表
+
+在仓库根目录使用已安装依赖的 Python：
+
+```text
+python -m pip install -r requirements-figures.txt
+python scripts/build_readme_figures.py
+```
+
+脚本读取已提交的 `talk_data.js`，输出 `media/readme/` 下的 PNG、SVG、汇总 CSV 和来源 JSON；同时检查六个组合、初始 Agent、共同配置、逐步人数守恒和时间轴。可编辑矢量图：[工况](media/readme/scenarios.svg) · [结果](media/readme/recorded-results.svg) · [过程诊断](media/readme/recorded-diagnostics.svg)。
+
+### 保存一次新实验
+
+一次完整的本地运行可保留：
+
+```text
+<运行目录>/
+  settings.json       # 运行参数
+  replay.json         # 拓扑、逐步快照、事件及质量标记
+  events.jsonl        # 事件序列
+  research/           # 汇总及逐 Agent / 节点 / 通道 / LLM 调用 CSV
+```
+
+研究复现同时记录代码提交、模型名称、参数、seed、初始人群、调用质量和原始回放。回放用于重现已记录过程；重新调用 API 会产生一份新的独立运行记录。
 
 ## 研究界面和批量工具
 
@@ -115,17 +244,19 @@ python -m pip install -r 01_研究源码/requirements.txt
 python -m streamlit run 01_研究源码/app.py --server.address 127.0.0.1 --server.port 8501
 ```
 
-批量实验、画像校准、LLM 日志审计和历史紧凑数据再分析入口见 [研究源码说明](01_研究源码/README.md)。附带的 `results/processed/` 和 `figures/` 是来源项目的历史研究材料，不是本版本新生成的实验结果。最新两轮用户运行的完整原始日志留在本地；上传包包含审计摘要。
+批量实验、画像校准、LLM 日志审计和历史紧凑数据再分析入口见 [研究源码说明](01_研究源码/README.md)。`results/processed/` 和 `figures/` 保存历史研究材料，`evidence/` 保存协议审计摘要。
 
 ## 测试
 
 ```text
 python -m pip install -r requirements-dev.txt
-python -m pytest 01_研究源码/tests 02_可视化沙盒/tests -q
+python -m pytest 01_研究源码/tests 02_可视化沙盒/tests scripts/tests -q
 python scripts/verify_package.py
 ```
 
 测试不会调用付费 API。依赖未分发原始历史日志的测试会明确跳过。
+
+`verify_package.py` 检查当前工作版本的启动与本地运行；`--verify-manifest` 核对发布快照中的文件哈希。
 
 前端摘要与特效单元检查：
 
@@ -162,16 +293,25 @@ node tests/effects-browser.cjs
 | `01_研究源码/` | 仿真、策略、容量仲裁、LLM 接口、记录器、Streamlit、研究工具和测试 |
 | `02_可视化沙盒/` | HTML/CSS/JS 前端、HTTP/SSE 服务、CLI、字体、演示和浏览器测试 |
 | `examples/` | 无密钥的可运行示例配置 |
-| `scripts/` | 可移植的交付检查脚本 |
+| `scripts/` | 交付检查与 README 图表重建脚本 |
+| `media/readme/` | 当前六组录制的图表、汇总数据与来源校验 |
 | `evidence/` | 既有测试与当前打包验证、最近 DeepSeek 审计摘要 |
 | `.github/workflows/` | 自动检查配置 |
 | `RELEASE_MANIFEST.json` | 文件 SHA-256 与来源说明 |
 
-完整参数见 [PARAMETERS.md](PARAMETERS.md)，事件与快照见 [EVENT_PROTOCOL.md](EVENT_PROTOCOL.md)，机制边界见 [FINAL_MECHANISM_AUDIT.md](FINAL_MECHANISM_AUDIT.md)，画面与素材见 [ASSETS.md](ASSETS.md)。
+完整参数见 [PARAMETERS.md](PARAMETERS.md)，事件与快照见 [EVENT_PROTOCOL.md](EVENT_PROTOCOL.md)，机制说明见 [FINAL_MECHANISM_AUDIT.md](FINAL_MECHANISM_AUDIT.md)，画面与素材见 [ASSETS.md](ASSETS.md)。
 
-## 模型与记录的边界
+## 素材与许可
 
-这是 18 节点拓扑模型，每步最多一跳；地图不是实测建筑平面。火烟传播、体力、恐慌与行为画像是抽象研究参数，标称秒数不代表完成了物理校准。
+博物馆地图、陈设、人物与特效采用原创 Canvas 绘制。字体信息及素材说明见 [ASSETS.md](ASSETS.md)，Fusion Pixel 字体许可见 [LICENSE-font.txt](02_可视化沙盒/font/LICENSE-font.txt)。
 
-内嵌演示保留 6 组实际执行的本地规则录制和 24 组交接包历史录制，页面分别标注。旧录制、旧研究图表与本版本不能混为同一实验。真实 API 即使同 seed 也不保证再次生成同样轨迹，复现应保留配置、初始状态、代码哈希和原始回放。
+## 文档导航
 
+| 想了解什么 | 文档 |
+|---|---|
+| 参数、人数、起火点、初始位置 | [PARAMETERS.md](PARAMETERS.md) |
+| 快照与实时同步协议 | [EVENT_PROTOCOL.md](EVENT_PROTOCOL.md) |
+| 机制审查与版本记录 | [FINAL_MECHANISM_AUDIT.md](FINAL_MECHANISM_AUDIT.md)、[KNOWN_ISSUES.md](KNOWN_ISSUES.md) |
+| 导览、分屏与场景表现 | [UI_TOUR_1_7.md](UI_TOUR_1_7.md) |
+| 历史实验与批量工具 | [研究源码说明](01_研究源码/README.md) |
+| 版本改动 | [CHANGELOG.md](CHANGELOG.md) |

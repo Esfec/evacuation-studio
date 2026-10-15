@@ -1,0 +1,3 @@
+# Optional: reproduce README figures from committed recordings, without API calls.
+matplotlib>=3.8,<4
+numpy>=1.26,<3
