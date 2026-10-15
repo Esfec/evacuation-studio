@@ -1,0 +1,466 @@
+{
+  "schema_version": 1,
+  "source": {
+    "title": "LLM-Agent-Based Comparative Screening of Early-Stage Fire-Egress Designs",
+    "sha256": "b0efd962b434e559ea7ecf56e01125e9eee7067defef7d7c341a766359cc57f0",
+    "sections": [
+      "Table 3",
+      "Table 4",
+      "Figures 2–5",
+      "Results"
+    ],
+    "mode": "Manuscript-reported statistics; original reported rounding and 20-seed analysis retained"
+  },
+  "experiment": {
+    "llm_runs": 120,
+    "baseline_runs": 480,
+    "ablation_runs": 40,
+    "seeds": [
+      101,
+      102,
+      103,
+      104,
+      105,
+      106,
+      107,
+      108,
+      109,
+      110,
+      111,
+      112,
+      113,
+      114,
+      115,
+      116,
+      117,
+      118,
+      119,
+      120
+    ],
+    "agents": 48,
+    "max_steps": 30,
+    "nominal_seconds_per_step": 5,
+    "bootstrap_resamples": 20000
+  },
+  "cells": [
+    {
+      "design": "D0",
+      "condition": "C0",
+      "n": 20,
+      "escape_rate": 0.572,
+      "escape_rate_sd": 0.06,
+      "rmet30": 16.22,
+      "rmet30_sd": 1.44,
+      "smoke_exposure": 2.854,
+      "smoke_exposure_sd": 0.262,
+      "wait_events": 191.85,
+      "backtracks": 1.585
+    },
+    {
+      "design": "D0",
+      "condition": "C1",
+      "n": 20,
+      "escape_rate": 0.454,
+      "escape_rate_sd": 0.036,
+      "rmet30": 19.51,
+      "rmet30_sd": 0.66,
+      "smoke_exposure": 3.325,
+      "smoke_exposure_sd": 0.115,
+      "wait_events": 203.6,
+      "backtracks": 1.926
+    },
+    {
+      "design": "D1",
+      "condition": "C0",
+      "n": 20,
+      "escape_rate": 0.574,
+      "escape_rate_sd": 0.06,
+      "rmet30": 16.09,
+      "rmet30_sd": 1.38,
+      "smoke_exposure": 2.794,
+      "smoke_exposure_sd": 0.221,
+      "wait_events": 183.65,
+      "backtracks": 1.513
+    },
+    {
+      "design": "D1",
+      "condition": "C1",
+      "n": 20,
+      "escape_rate": 0.452,
+      "escape_rate_sd": 0.037,
+      "rmet30": 19.63,
+      "rmet30_sd": 0.79,
+      "smoke_exposure": 3.422,
+      "smoke_exposure_sd": 0.181,
+      "wait_events": 204.25,
+      "backtracks": 2.119
+    },
+    {
+      "design": "D2",
+      "condition": "C0",
+      "n": 20,
+      "escape_rate": 0.552,
+      "escape_rate_sd": 0.06,
+      "rmet30": 16.6,
+      "rmet30_sd": 1.38,
+      "smoke_exposure": 2.908,
+      "smoke_exposure_sd": 0.2,
+      "wait_events": 184.1,
+      "backtracks": 1.607
+    },
+    {
+      "design": "D2",
+      "condition": "C1",
+      "n": 20,
+      "escape_rate": 0.476,
+      "escape_rate_sd": 0.041,
+      "rmet30": 18.87,
+      "rmet30_sd": 1.01,
+      "smoke_exposure": 3.311,
+      "smoke_exposure_sd": 0.208,
+      "wait_events": 193.15,
+      "backtracks": 1.878
+    }
+  ],
+  "effects": [
+    {
+      "id": "disruption",
+      "label": "D0: C1 − C0",
+      "mean": -0.118,
+      "low": -0.149,
+      "high": -0.084,
+      "n": 20,
+      "metric": "escape_rate_difference"
+    },
+    {
+      "id": "d1c0",
+      "label": "D1 − D0 | C0",
+      "mean": 0.002,
+      "low": -0.031,
+      "high": 0.04,
+      "n": 20,
+      "metric": "escape_rate_difference"
+    },
+    {
+      "id": "d1c1",
+      "label": "D1 − D0 | C1",
+      "mean": -0.002,
+      "low": -0.025,
+      "high": 0.021,
+      "n": 20,
+      "metric": "escape_rate_difference"
+    },
+    {
+      "id": "d2c0",
+      "label": "D2 − D0 | C0",
+      "mean": -0.02,
+      "low": -0.056,
+      "high": 0.019,
+      "n": 20,
+      "metric": "escape_rate_difference"
+    },
+    {
+      "id": "d2c1",
+      "label": "D2 − D0 | C1",
+      "mean": 0.022,
+      "low": 0.002,
+      "high": 0.042,
+      "wilcoxon_p": 0.101,
+      "n": 20,
+      "metric": "escape_rate_difference"
+    },
+    {
+      "id": "did",
+      "label": "D2 interaction",
+      "mean": 0.042,
+      "low": -0.005,
+      "high": 0.085,
+      "n": 20,
+      "metric": "escape_rate_difference"
+    }
+  ],
+  "policies": [
+    {
+      "policy": "LLM",
+      "escape_delta": 0.022,
+      "rmet30_delta": -0.64,
+      "n04_failures_delta": -4.05,
+      "receiving_load_delta": 34.45,
+      "receiving_failures_delta": 4.9,
+      "link_traversals": 183.0
+    },
+    {
+      "policy": "LLM-off",
+      "escape_delta": 0.114,
+      "rmet30_delta": -2.81,
+      "n04_failures_delta": -5.65,
+      "receiving_load_delta": 41.45,
+      "receiving_failures_delta": 3.65,
+      "link_traversals": 303.0
+    },
+    {
+      "policy": "Local Rule",
+      "escape_delta": 0.076,
+      "rmet30_delta": -1.86,
+      "n04_failures_delta": -4.7,
+      "receiving_load_delta": 44.7,
+      "receiving_failures_delta": 3.95,
+      "link_traversals": 263.0
+    },
+    {
+      "policy": "Global shortest",
+      "escape_delta": 0.191,
+      "rmet30_delta": -4.35,
+      "n04_failures_delta": 0.05,
+      "receiving_load_delta": 109.3,
+      "receiving_failures_delta": 1.95,
+      "link_traversals": 472.0
+    },
+    {
+      "policy": "Risk-aware",
+      "escape_delta": 0.024,
+      "rmet30_delta": -0.84,
+      "n04_failures_delta": 0.15,
+      "receiving_load_delta": -1.1,
+      "receiving_failures_delta": 1.05,
+      "link_traversals": 472.0
+    },
+    {
+      "policy": "Random",
+      "escape_delta": 0.015,
+      "rmet30_delta": -0.46,
+      "n04_failures_delta": -2.7,
+      "receiving_load_delta": 24.4,
+      "receiving_failures_delta": 2.95,
+      "link_traversals": 278.0
+    }
+  ],
+  "profiles": [
+    {
+      "profile": "Cognitive",
+      "n": 10,
+      "escape_rate": 0.964,
+      "smoke_exposure": 1.248,
+      "backtracks": 1.117,
+      "final_panic": 0.331
+    },
+    {
+      "profile": "Perceptual",
+      "n": 15,
+      "escape_rate": 0.738,
+      "smoke_exposure": 2.595,
+      "backtracks": 2.621,
+      "final_panic": 0.747
+    },
+    {
+      "profile": "Follower",
+      "n": 23,
+      "escape_rate": 0.171,
+      "smoke_exposure": 4.239,
+      "backtracks": 1.502,
+      "final_panic": 0.975
+    }
+  ],
+  "spatial_nodes": [
+    {
+      "node": "N04",
+      "delta": -81
+    },
+    {
+      "node": "N06",
+      "delta": -19
+    },
+    {
+      "node": "N08",
+      "delta": 24
+    },
+    {
+      "node": "N13",
+      "delta": 20
+    },
+    {
+      "node": "N14",
+      "delta": 19
+    },
+    {
+      "node": "N09",
+      "delta": 22
+    },
+    {
+      "node": "N16",
+      "delta": 13
+    }
+  ],
+  "spatial_totals": [
+    {
+      "region": "N04",
+      "d0": 128,
+      "d2": 47
+    },
+    {
+      "region": "Other rooms",
+      "d0": 396,
+      "d2": 456
+    },
+    {
+      "region": "All rooms",
+      "d0": 524,
+      "d2": 503
+    }
+  ],
+  "topology": {
+    "nodes": [
+      "N01",
+      "N02",
+      "N03",
+      "N04",
+      "N05",
+      "N06",
+      "N07",
+      "N08",
+      "N09",
+      "N10",
+      "N11",
+      "N12",
+      "N13",
+      "N14",
+      "N15",
+      "N16",
+      "N17",
+      "N18"
+    ],
+    "edges": [
+      [
+        "N15",
+        "N17"
+      ],
+      [
+        "N17",
+        "N01"
+      ],
+      [
+        "N01",
+        "N03"
+      ],
+      [
+        "N03",
+        "N02"
+      ],
+      [
+        "N02",
+        "N07"
+      ],
+      [
+        "N17",
+        "N06"
+      ],
+      [
+        "N01",
+        "N05"
+      ],
+      [
+        "N02",
+        "N13"
+      ],
+      [
+        "N07",
+        "N08"
+      ],
+      [
+        "N04",
+        "N06"
+      ],
+      [
+        "N06",
+        "N05"
+      ],
+      [
+        "N05",
+        "N02"
+      ],
+      [
+        "N13",
+        "N08"
+      ],
+      [
+        "N08",
+        "N18"
+      ],
+      [
+        "N06",
+        "N10"
+      ],
+      [
+        "N05",
+        "N09"
+      ],
+      [
+        "N13",
+        "N14"
+      ],
+      [
+        "N10",
+        "N11"
+      ],
+      [
+        "N10",
+        "N09"
+      ],
+      [
+        "N09",
+        "N13"
+      ],
+      [
+        "N14",
+        "N16"
+      ],
+      [
+        "N10",
+        "N12"
+      ]
+    ],
+    "exit_directed": [
+      [
+        "N10",
+        "N11"
+      ],
+      [
+        "N08",
+        "N18"
+      ]
+    ],
+    "added_edge": [
+      "N06",
+      "N08"
+    ],
+    "widened_edge": [
+      "N06",
+      "N10"
+    ],
+    "closure_node": "N10",
+    "fire_origin": "N01",
+    "source": "Manuscript Figure 2; schematic adjacency, not architectural scale"
+  },
+  "c1_effects": {
+    "wait_delta": -10.45,
+    "wait_ci": [
+      -18.95,
+      -2.35
+    ],
+    "rmet30_delta": -0.64,
+    "rmet30_ci": [
+      -1.06,
+      -0.24
+    ],
+    "rmet30_wilcoxon_p": 0.015,
+    "link_traversals": 183,
+    "forward_traversals": 172
+  },
+  "audit_reference": "EXPERIMENT_SOURCE_AUDIT.md",
+  "statistical_notes": [
+    "Cell error bars reproduce the manuscript SD, not a confidence interval.",
+    "Paired effect intervals are the manuscript-reported 95% bootstrap intervals across 20 seed labels.",
+    "C0 seed 117 initial-distribution mismatch is retained in the separate audit; manuscript figures reproduce its original inclusion.",
+    "Policy and profile panels show manuscript point estimates without newly estimated uncertainty."
+  ]
+}

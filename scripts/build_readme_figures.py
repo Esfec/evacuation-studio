@@ -1,7 +1,9 @@
-"""Build README evidence from committed recordings only; never call an API.
+"""Build seed-42 demo figures from committed recordings, without API calls.
 
 Run from any directory: python scripts/build_readme_figures.py
 Requires requirements-figures.txt. Output values use completed_steps, not step.
+Main README figures use scripts/build_paper_readme_figures.py.
+Independent archival reanalysis uses scripts/build_formal_readme_figures.py.
 """
 import csv
 import hashlib

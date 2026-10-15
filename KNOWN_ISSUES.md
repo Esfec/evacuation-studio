@@ -16,6 +16,8 @@ studio-1.5-llm-protocol 的处理（见 CHANGELOG）：
 
 ## 旧资料与版本
 
+2026-10-15 重新核对归档多 seed 数据时，发现 D0/C0/seed 117 的有效重跑初始房间人数分配与 D1、D2 不同。README 现按论文报告值展示20 seed结果（`paper-*`）；独立复算（按需生成至 `local-exports/formal-audit/`）保留每组合20次有效运行用于描述均值，C0配对效应使用19个匹配seed，C1使用20个。两套结果在图表来源与重建脚本中分别标明。具体 run ID、分配和重算方法见 [实验来源核查](media/readme/EXPERIMENT_SOURCE_AUDIT.md)。原归档分析报告保持原样。
+
 `01_研究源码/docs/RELEASE_REVIEW.md`、部分研究 README 和历史图表描述的是来源项目先前的版本；当前机制说明以根目录 `FINAL_MECHANISM_AUDIT.md`、`MECHANISM_AUDIT.md` 和变更记录为准。原始历史付费日志没有包含，依赖它们的测试会跳过。
 
 `02_可视化沙盒/tests/browser.cjs` 是早期完整交互测试，部分气泡文案断言已过期。新版使用 `visual-context.cjs`、`building-layout.cjs` 和 `effects-browser.cjs` 检查当前气泡、布局与特效。

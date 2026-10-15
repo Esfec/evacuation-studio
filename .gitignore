@@ -37,3 +37,6 @@ Thumbs.db
 
 # Local talk materials (slides, recordings)
 Claude outputs/
+
+# Optional figure exports and independent analysis products
+local-exports/

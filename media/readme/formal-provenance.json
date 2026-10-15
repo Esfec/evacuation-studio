@@ -1,0 +1,155 @@
+{
+  "dataset": "formal_design_p0_v1",
+  "valid_llm_runs": 120,
+  "seeds": [
+    101,
+    102,
+    103,
+    104,
+    105,
+    106,
+    107,
+    108,
+    109,
+    110,
+    111,
+    112,
+    113,
+    114,
+    115,
+    116,
+    117,
+    118,
+    119,
+    120
+  ],
+  "units": {
+    "descriptive": "run",
+    "paired": "matched seed",
+    "profiles": "seed cluster over six cells"
+  },
+  "valid_baseline_runs": 480,
+  "matched_ablation_runs": 40,
+  "cell_run_count": 20,
+  "matched_seeds_by_condition": {
+    "C0": [
+      101,
+      102,
+      103,
+      104,
+      105,
+      106,
+      107,
+      108,
+      109,
+      110,
+      111,
+      112,
+      113,
+      114,
+      115,
+      116,
+      118,
+      119,
+      120
+    ],
+    "C1": [
+      101,
+      102,
+      103,
+      104,
+      105,
+      106,
+      107,
+      108,
+      109,
+      110,
+      111,
+      112,
+      113,
+      114,
+      115,
+      116,
+      117,
+      118,
+      119,
+      120
+    ]
+  },
+  "initial_distribution_mismatches": [
+    {
+      "condition": "C0",
+      "seed": 117,
+      "distributions": {
+        "D0": {
+          "N02": 16,
+          "N03": 6,
+          "N04": 11,
+          "N05": 15
+        },
+        "D1": {
+          "N02": 15,
+          "N03": 16,
+          "N04": 6,
+          "N05": 11
+        },
+        "D2": {
+          "N02": 15,
+          "N03": 16,
+          "N04": 6,
+          "N05": 11
+        }
+      }
+    }
+  ],
+  "excluded_runs": [
+    {
+      "run_id": "20260816_190435_24ed4a9f",
+      "design": "D0",
+      "condition": "C0",
+      "seed": "117"
+    }
+  ],
+  "bootstrap": {
+    "samples": 20000,
+    "interval": "percentile 2.5% / 97.5%",
+    "rng_seed": 20261015
+  },
+  "source_files": {
+    "llm": {
+      "path": "01_研究源码/results/processed/formal_design_p0_v1/paper_summary_v1.csv",
+      "sha256": "79534d6171136d388d2c14d409aa675d049b42c3173955683584c9cd68229102"
+    },
+    "meta": {
+      "path": "01_研究源码/results/processed/formal_design_p0_v1/summary_v4.csv",
+      "sha256": "738aa3901e28fc1baaeb799d2ed305d759c82773313d5e2335ea53516d9aa6b4"
+    },
+    "baseline": {
+      "path": "01_研究源码/results/processed/formal_baselines_p0_v1/paper_summary_v1.csv",
+      "sha256": "f32df25fbad917ec911bf5de11f76664162e28979a03f1ecab3803eba6f2f146"
+    },
+    "baseline_meta": {
+      "path": "01_研究源码/results/processed/formal_baselines_p0_v1/summary_v4.csv",
+      "sha256": "943a99b0a6629e4e3114371b4f182a782b62626b0eda7108b0f034659645a73d"
+    },
+    "diagnostics": {
+      "path": "01_研究源码/results/processed/matched_ablation/policy_diagnostic_run_metrics.csv",
+      "sha256": "2f9e3605eceb8d3f03626dfa3777d1b8458c29bfbfe37cfe30d64f2c7ea6e2da"
+    },
+    "ablation": {
+      "path": "01_研究源码/results/processed/matched_ablation/llm_off_ablation_c1/run_summary.csv",
+      "sha256": "40cbb16a3f9a13e341af5da796426793ce758907c6b165fb3a5ce45754fcd791"
+    },
+    "profile_lock": {
+      "path": "01_研究源码/agent_profiles/formal_profile_lock.json",
+      "sha256": "16d6670d3aa0fdc515174749e644d85c7d4b7ce3fe305d68b952500693273e13"
+    },
+    "profile": {
+      "path": "01_研究源码/agent_profiles/Agent_P0_current.json",
+      "sha256": "c48533b34eb9e37d1ae28ee4b3baa636e98f99be956adc657d0c148b08cc43b7"
+    }
+  },
+  "api_calls": 29955,
+  "fallback_events": 530,
+  "frozen_profile_sha256": "c48533b34eb9e37d1ae28ee4b3baa636e98f99be956adc657d0c148b08cc43b7"
+}
