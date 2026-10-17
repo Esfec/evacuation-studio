@@ -2,13 +2,13 @@
 
 **把建筑方案、Agent 决策与疏散过程放在同一个可观察、可回放的研究环境中。**
 
-Evacuation Studio 是面向建筑设计早期方案比选的研究原型：以 18 节点博物馆为场景，将 LLM Agent 的局部观察、空间记忆与行动选择接入具有火烟、通道容量和排队约束的仿真，再用原创 Cozy Pixel Art 界面展示全过程。
+Evacuation Studio 是面向建筑设计早期方案比选的研究原型：以 18 节点博物馆为场景，将 LLM Agent 的局部观察、空间记忆与行动选择接入具有火烟、通道容量和排队约束的仿真，再用 Cozy Pixel Art 界面展示全过程。
 
 **[▶ 在线演示](https://esfec.github.io/evacuation-studio/)** · [快速启动](#快速启动) · [方案与工况](#方案与工况) · [多 seed 实验结果](#多-seed-实验结果) · [数据与复现](#数据与复现)
 
 在线页面无需密钥，只播放已有记录，不调用 API。内嵌文件约 31.4 MiB，首次打开需等待加载；本地服务支持新建仿真与真实 API 调用。
 
-研究结果采用已归档的 **120 次有效 LLM 运行、480 次传统策略运行和 40 次匹配消融运行**，覆盖 D0/D1/D2 × C0/C1、seeds 101–120。下面的图表按论文的统计口径重绘，沿用论文报告的数值、20 seed 分析及误差线定义。
+研究结果采用已归档的 **120 次有效 LLM 运行、480 次传统策略运行和 40 次匹配消融运行**，覆盖 D0/D1/D2 × C0/C1、seeds 101–120。
 
 当前仿真与事件服务标识为 `studio-1.5-llm-protocol`，前端为 `museum-ui-1.9`。在线演示使用 2026-10-13 的六组 DeepSeek 录制：每组 seed 42，共 1,815 次请求。演示可用于观察过程，统计图采用归档的冻结 P0 实验。版本信息见 [已知问题](KNOWN_ISSUES.md) 与 [变更记录](CHANGELOG.md)。
 
@@ -37,8 +37,6 @@ Evacuation Studio 是面向建筑设计早期方案比选的研究原型：以 1
 完整节点与参数见 [PARAMETERS.md](PARAMETERS.md)，方案定义见 [scenarios.py](01_研究源码/scenarios.py)。
 
 ## 多 seed 实验结果
-
-本节对应论文 *LLM-Agent-Based Comparative Screening of Early-Stage Fire-Egress Designs* 的表3、表4及图3—5。图表采用论文报告值与原有20 seed分析口径，表中小数精度与论文一致。
 
 ### 实验设置
 
